@@ -1,0 +1,44 @@
+.header-home {
+  background-color: #90a955;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-home #nav-home h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #ebf3a0;
+}
+.header-home #nav-home h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 0.5fr 2.5fr;
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas: "nav main" "nav footer";
+}
+.container #nav {
+  grid-area: nav;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .nav {
+  text-align: center;
+}
+.container .nav a {
+  padding: 35% 0;
+  display: block;
+}
+
+.main {
+  grid-area: main;
+  min-height: 92vh;
+}
+
+/*# sourceMappingURL=style.css.map */
