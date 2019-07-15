@@ -34,7 +34,7 @@ function get_page($get_page){
  */
 function route($tabs, $page){
     $x = in_array($page, $tabs);
-    if($x === true){
+    if($x){
         foreach($tabs as $name){
             if($page === $name){
                 if($name === "home"){
@@ -60,4 +60,10 @@ function route($tabs, $page){
 function get_link($get){
     $link = "index.php?$get=";
     return $link;
+}
+function active($page, $page_active){
+    if($page === $page_active){
+        $x = "active";
+        return $x;
+    }
 }

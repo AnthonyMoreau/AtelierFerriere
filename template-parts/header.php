@@ -13,11 +13,11 @@
         <nav id="nav" role="nav">
             <div class="nav">
                 <a href="index.php">Actualités</a>
-                <a href="<?= get_link("page")?>professionnels">Professionnel</a>
-                <a href="<?= get_link("page")?>particuliers">Particuliers</a>
-                <a href="<?= get_link("page")?>mobiliers">mobiliers</a>
-                <a href="<?= get_link("page")?>accessoires">Accéssoires</a>
-                <a href="<?= get_link("page")?>atelier">L'Atelier</a>
-                <a href="<?= get_link("page")?>contact">Contact</a>
+                <a href="<?= get_link("page")?>professionnels" class="<?= active($page, "professionnels") ?>">Professionnel</a>
+                <a href="<?= get_link("page")?>particuliers" class="<?= active($page, "particuliers") ?>">Particuliers</a>
+                <a href="<?= get_link("page")?>mobiliers" class="<?= active($page, "mobiliers") ?>">mobiliers</a>
+                <a href="<?= get_link("page")?>accessoires" class="<?= active($page, "accessoires") ?>">Accéssoires</a>
+                <a href="<?= get_link("page")?>atelier" class="<?= active($page, "atelier") ?>">L'Atelier</a>
+                <a href="<?= get_link("page")?>contact" class="<?= active($page, "contact") ?>">Contact</a>
             </div>
         </nav>

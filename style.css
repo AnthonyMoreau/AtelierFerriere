@@ -1,3 +1,11 @@
+a {
+  text-decoration: none;
+}
+
+.active {
+  color: orangered !important;
+}
+
 .header-home {
   background-color: #90a955;
   height: 70vh;
@@ -32,13 +40,19 @@
   text-align: center;
 }
 .container .nav a {
-  padding: 35% 0;
+  margin: 40% 0;
   display: block;
 }
 
 .main {
   grid-area: main;
   min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .site-content p {
+  font-size: 3em;
 }
 
 /*# sourceMappingURL=style.css.map */
