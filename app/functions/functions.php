@@ -11,24 +11,6 @@ function dd($variable){
     die();
 }
 /**
- * verifie le get
- * @param: $_GET
- * @return: string
- */
-function get_page($get_page, $_else){
-
-        
-    if(isset($get_page)){
-
-        $page = $get_page;
-
-    } else {
-
-        $page = $_else;
-    }
-    return $page;
-}
-/**
  * route le site
  * @param: array, string, string, string
  * @return: mixed

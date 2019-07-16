@@ -2,7 +2,15 @@
 
 require "../app/functions/functions.php";
 
-$page = get_page($_GET["admin"], "connection");
+
+if(isset($_GET["admin"])){
+
+    $page = $_GET["admin"];
+
+} else {
+
+    $page = "connection";
+}
 
 
 route([

@@ -2,20 +2,27 @@
 
 session_start();
 $_SESSION["auth"] = false;
-$_SESSION["errors"] = null;
+$_SESSION["errors"] = "";
 
 require "app/functions/functions.php";
 
-    $page = get_page($_GET["page"], "home");
+if(isset($_GET["page"])){
 
-    route([
-        "home",
-        "professionnels",
-        "particuliers",
-        "mobiliers",
-        "accessoires",
-        "atelier",
-        "contact"
-    ],$page, "pages", "home");
+    $page = $_GET["page"];
+
+} else {
+
+    $page = "home";
+}
+
+route([
+    "home",
+    "professionnels",
+    "particuliers",
+    "mobiliers",
+    "accessoires",
+    "atelier",
+    "contact"
+],$page, "pages", "home");
 
 
