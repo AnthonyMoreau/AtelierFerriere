@@ -61,6 +61,12 @@ function get_link($get){
     $link = "index.php?$get=";
     return $link;
 }
+/**
+ * gere le "active" des pages
+ * @param: string
+ * @param: string
+ * @return: string
+ */
 function active($page, $page_active){
     if($page === $page_active){
         $x = "active";
