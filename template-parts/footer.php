@@ -1,6 +1,6 @@
 
 <div class="footer">
-    JE SUIS LE FOOTER
+    <a href="admin/index.php">Admin</a>
 </div>
 </div>
 </body>

@@ -15,24 +15,26 @@ function dd($variable){
  * @param: $_GET
  * @return: string
  */
-function get_page($get_page){
-    
+function get_page($get_page, $_else){
+
+        
     if(isset($get_page)){
 
         $page = $get_page;
 
     } else {
 
-        $page = "home";
+        $page = $_else;
     }
     return $page;
 }
 /**
  * route le site
- * @param: array, string
+ * @param: array, string, string, string
  * @return: mixed
  */
-function route($tabs, $page){
+function route($tabs, $page, $parent, $redirection){
+    session_start();
     $x = in_array($page, $tabs);
     if($x){
         foreach($tabs as $name){
@@ -40,16 +42,18 @@ function route($tabs, $page){
                 if($name === "home"){
                     $title = "Actualités";
                 } else {
+                    $title_admin = "connection";
                     $title = ucfirst($name);
                 }
-                require "pages/$name.php";
+                require "$parent/$name.php";
             }
         }
     } else {
-
+        //Redirection
+        $_SESSION["auth"] = false;
         $title = "Actualités";
-        $name = "home";
-        require "pages/$name.php";
+        $name = $redirection;
+        require "$parent/$name.php";
     }
 }
 /**
@@ -69,7 +73,6 @@ function get_link($get){
  */
 function active($page, $page_active){
     if($page === $page_active){
-        $x = "active";
-        return $x;
+        return "active";
     }
 }
