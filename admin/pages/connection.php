@@ -1,12 +1,14 @@
 <?php 
     session_start();
-    $_SESSION["errors"] = "";
+    $_SESSION["errors"] = null;
+    $_SESSION["success"] = null;
 
     if($_SESSION["auth"] === false){
-        $_SESSION["errors"] = "Bonjour, vous devez vous connecter pour créer un article";
+        $_SESSION["success"] = "Bonjour, vous devez vous connecter pour publier";
     }
     if($_SESSION["auth"] !== true and $_SESSION["auth"] !== false){
         $_SESSION["errors"] = "Pour accéder à cette page, vous devez vous connecter !";
+        $_SESSION["auth"] = false;
     }
 
 ?>
@@ -30,9 +32,18 @@
             </nav>
             <div class="connection">
                 <h3>Connection</h3>
-                <p class="error">
-                    <?= $_SESSION["errors"] ?>
-                </p>
+
+                <?php if($_SESSION["success"] !== null) : ?>
+                    <p class="success">
+                        <?= $_SESSION["success"] ?>
+                    </p>
+                <?php endif ?>
+
+                <?php if($_SESSION["errors"] !== null) : ?>
+                    <p class="errors">
+                        <?= $_SESSION["errors"] ?>
+                    </p>
+                <?php endif ?>
 
                 <form action="#" method="post">
                     <p>
@@ -42,7 +53,7 @@
                         <input id="user-password" type="text" placeholder="password">
                     </p>
                     <p>
-                        <input id="user-password" type="submit" value="Connection">
+                        <button id="user-button" type="submit">Se connecter</button>
                     </p>
                 </form>
             </div>

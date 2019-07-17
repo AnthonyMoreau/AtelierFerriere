@@ -72,16 +72,38 @@ a {
 }
 .container-admin .admin-content-connection .connection h3 {
   font-size: 2.5em;
+  font-weight: 500;
   text-decoration: underline;
 }
 .container-admin .admin-content-connection .connection p {
   margin: 2em 0;
 }
-.container-admin .admin-content-connection .connection .error {
+.container-admin .admin-content-connection .connection .errors {
   color: whitesmoke;
   padding: 0.7em 1em;
   border-radius: 0.3em;
   background-color: #b12828;
+}
+.container-admin .admin-content-connection .connection .success {
+  color: whitesmoke;
+  padding: 0.7em 1em;
+  border-radius: 0.3em;
+  background-color: #28b13f;
+}
+.container-admin .admin-content-connection .connection button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 0.65em 1.2em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+}
+.container-admin .admin-content-connection .connection button:hover {
+  background-color: #2f5a30;
+  /* Green */
 }
 
 /*# sourceMappingURL=style.css.map */

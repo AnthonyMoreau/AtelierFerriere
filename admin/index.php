@@ -15,7 +15,7 @@ if(isset($_GET["admin"])){
 
 route([
     "connection",
-    "creation",
+    "create",
     "edit"
 ],$page, "../admin/pages", "connection");
 
