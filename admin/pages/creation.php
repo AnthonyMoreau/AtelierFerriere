@@ -1,7 +1,7 @@
 <?php 
     session_start();
     
-    if($_SESSION["auth"] !==true ){
+    if($_SESSION["auth"] !== true ){
         $_SESSION["auth"] = "noPermission";
         header("location: index.php?admin=connection");
     }

@@ -22,27 +22,29 @@
 </head>
 <body>
     <div class="container-admin">
-        <nav id="nav" role="nav">
-            <div class="nav">
-                <a href="../index.php">Retour sur le site</a>
+        <div class="admin-content-connection">
+            <nav id="nav" role="nav">
+                <div class="nav">
+                    <a href="../index.php">Retour sur le site</a>
+                </div>
+            </nav>
+            <div class="connection">
+                <h3>Connection</h3>
+                <p class="error">
+                    <?= $_SESSION["errors"] ?>
+                </p>
+
+                <form action="#" method="post">
+                    <p>
+                        <input id="user-name" type="text" placeholder="Name">
+                    </p>
+                    <p>
+                        <input id="user-password" type="text" placeholder="password">
+                    </p>
+                    <p>
+                        <input id="user-password" type="submit" value="Connection">
+                    </p>
+                </form>
             </div>
-        </nav>
-
-        <h2>Connection</h2>
-        <p>
-            <?= $_SESSION["errors"] ?>
-        </p>
-
-        <form action="#" method="post">
-            <p>
-                <input type="text" placeholder="Name">
-            </p>
-            <p>
-                <input type="text" placeholder="password">
-            </p>
-            <p>
-                <input type="submit" value="Connection">
-            </p>
-        </form>
-
-<?php dd($_SERVER); ?>
+        </div>
+        </div

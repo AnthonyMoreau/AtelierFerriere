@@ -1,0 +1,29 @@
+.container-admin{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .admin-content-connection{
+        .nav{
+            margin: 2em 0;
+        }
+        .connection{
+            h3{
+                font-size: 2.5em;
+                text-decoration: underline;
+            }
+            p{
+                margin: 2em 0;
+                
+            }
+            .error{
+                color: whitesmoke;
+                padding: 0.7em 1em;
+                border-radius: 0.3em;
+                background-color: rgb(177, 40, 40);
+            }
+        }
+
+    }
+}
