@@ -6,21 +6,42 @@
     text-align: center;
     .admin-content-create{
         .nav{
-            margin: 2em 0;
+            margin: 1em 0;
+        }
+        h3{
+            margin: 1em;
+            font-size: 2.5em;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+        form{
+            display: flex;
         }
         .create{
-            h3{
-                font-size: 2.5em;
-                font-weight: 500;
-                text-decoration: underline;
+            .create-left{
+                float: left;
+                margin: 0 2em;
+            }
+            .create-right{
+                margin: 0 2em;
             }
             p{
-                margin: 1.4em 0;
+                margin: 2em 0;
                 
+            }
+            #link_title{
+                text-align: center;
             }
             .link-create{
                 width: 100%;
                 text-align: center;
+            }
+            #type{
+                float: left;
+                margin-left: 3em;
+            }
+            #categories{
+                clear: both;
             }
             button {
                 background-color: #4CAF50; /* Green */

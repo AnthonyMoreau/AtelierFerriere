@@ -11,8 +11,10 @@
     $_SESSION["success"] = null;
     $link_admin = "#";
 
+    $_SESSION["auth"] = true;
+
     if($_SESSION["auth"] === false){
-        $_SESSION["success"] = "Bonjour, vous devez vous connecter pour publier";
+        $_SESSION["success"] = "Bonjour, entrez votre nom et votre password pour vous connecter";
     }
     if($_SESSION["auth"] !== true and $_SESSION["auth"] !== false){
         $_SESSION["errors"] = "Pour accéder à cette page, vous devez vous connecter !";
