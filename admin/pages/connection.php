@@ -1,7 +1,15 @@
 <?php 
     session_start();
+
+    if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=connection"){
+
+        header("location: ../../index.php");
+
+    } 
+
     $_SESSION["errors"] = null;
     $_SESSION["success"] = null;
+    $link_admin = "#";
 
     if($_SESSION["auth"] === false){
         $_SESSION["success"] = "Bonjour, vous devez vous connecter pour publier";
@@ -10,6 +18,7 @@
         $_SESSION["errors"] = "Pour accéder à cette page, vous devez vous connecter !";
         $_SESSION["auth"] = false;
     }
+
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +32,7 @@
     <title><?= $title ?></title>
 </head>
 <body>
-    <div class="container-admin">
+    <div class="container-admin-connection">
         <div class="admin-content-connection">
             <nav id="nav" role="nav">
                 <div class="nav">
@@ -52,10 +61,10 @@
                     <p>
                         <input id="user-password" type="text" placeholder="password">
                     </p>
+                </form>
                     <p>
                         <button id="user-button" type="submit">Se connecter</button>
                     </p>
-                </form>
             </div>
         </div>
         </div

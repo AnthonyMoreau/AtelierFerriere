@@ -4,6 +4,10 @@
  * @param: mixed
  * @return: string
  */
+function verif_link(){
+    $link = "ok";
+    return $link;
+}
 function dd($variable){
     ?> <pre> <?php
     var_dump($variable);

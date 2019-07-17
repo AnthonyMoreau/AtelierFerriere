@@ -1,9 +1,17 @@
-<?php 
+<?php
     session_start();
 
-    if($_SESSION["auth"] !==true ){
-        $_SESSION["auth"] = "noPermission";
-        header("location: index.php?admin=connection");
+    if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=edit"){
+
+        header("location: ../../index.php");
+
+    } else {
+        
+        if ($_SESSION["auth"] !== true ){
+
+            $_SESSION["auth"] = "noPermission";
+            header("location: index.php?admin=connection");
+        }
     }
 
 ?>

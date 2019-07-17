@@ -11,6 +11,20 @@ a {
   color: orangered !important;
 }
 
+.errors {
+  color: whitesmoke;
+  padding: 1em 1.3em;
+  border-radius: 0.3em;
+  background-color: #b12828;
+}
+
+.success {
+  color: whitesmoke;
+  padding: 1em 1.3em;
+  border-radius: 0.3em;
+  background-color: #28b13f;
+}
+
 .header-home {
   background-color: #90a955;
   height: 70vh;
@@ -60,37 +74,28 @@ a {
   font-size: 3em;
 }
 
-.container-admin {
+.container-admin-connection {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-.container-admin .admin-content-connection .nav {
+.container-admin-connection .admin-content-connection .nav {
   margin: 2em 0;
 }
-.container-admin .admin-content-connection .connection h3 {
+.container-admin-connection .admin-content-connection .connection h3 {
   font-size: 2.5em;
   font-weight: 500;
   text-decoration: underline;
 }
-.container-admin .admin-content-connection .connection p {
+.container-admin-connection .admin-content-connection .connection p {
   margin: 2em 0;
 }
-.container-admin .admin-content-connection .connection .errors {
-  color: whitesmoke;
-  padding: 0.7em 1em;
-  border-radius: 0.3em;
-  background-color: #b12828;
+.container-admin-connection .admin-content-connection .connection input[type=text] {
+  padding: 0.4em 0;
 }
-.container-admin .admin-content-connection .connection .success {
-  color: whitesmoke;
-  padding: 0.7em 1em;
-  border-radius: 0.3em;
-  background-color: #28b13f;
-}
-.container-admin .admin-content-connection .connection button {
+.container-admin-connection .admin-content-connection .connection button {
   background-color: #4CAF50;
   /* Green */
   border: none;
@@ -101,7 +106,45 @@ a {
   display: inline-block;
   border-radius: 8px;
 }
-.container-admin .admin-content-connection .connection button:hover {
+.container-admin-connection .admin-content-connection .connection button:hover {
+  background-color: #31582c;
+  /* Green */
+}
+
+.container-admin-create {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.container-admin-create .admin-content-create .nav {
+  margin: 2em 0;
+}
+.container-admin-create .admin-content-create .create h3 {
+  font-size: 2.5em;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.container-admin-create .admin-content-create .create p {
+  margin: 1.4em 0;
+}
+.container-admin-create .admin-content-create .create .link-create {
+  width: 100%;
+  text-align: center;
+}
+.container-admin-create .admin-content-create .create button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 0.65em 1.2em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+}
+.container-admin-create .admin-content-create .create button:hover {
   background-color: #2f5a30;
   /* Green */
 }

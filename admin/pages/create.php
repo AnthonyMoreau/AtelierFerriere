@@ -1,9 +1,18 @@
-<?php 
+<?php
+
     session_start();
-    
-    if($_SESSION["auth"] !== true ){
-        $_SESSION["auth"] = "noPermission";
-        header("location: index.php?admin=connection");
+
+    if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=create"){
+
+        header("location: ../../index.php");
+
+    } else {
+        
+        if ($_SESSION["auth"] !== true ){
+
+            $_SESSION["auth"] = "noPermission";
+            header("location: index.php?admin=connection");
+        }
     }
 
 ?>
@@ -18,10 +27,53 @@
     <title><?= $title ?></title>
 </head>
 <body>
-    <div class="container-admin">
-        <nav id="nav" role="nav">
-            <div class="nav">
-                <a href="../../index.php">Retour sur le site</a>
-                <a href="<?= get_link("admin")?>edit">Edit</a>
+    <div class="container-admin-create">
+        <div class="admin-content-create">
+            <nav id="nav" role="nav">
+                <div class="nav">
+                    <a href="../../index.php">Retour sur le site</a>
+                    <a href="<?= get_link("admin")?>edit">Edit</a>
+                </div>
+            </nav>
+            <div class="create">
+                <h3>Création</h3>
+                <form action="#" method="post">
+                    <p>
+                        <input type="text" name="title" id="title" placeholder="Titre">
+                    </p>
+                    <p>
+                        <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+                    </p>
+                    <p>
+                        <input type="text" name="link_title" id="link_title" placeholder="Titre du lien">
+                    </p>
+                    <p>
+                        <input class="link-create" type="text" name="link" id="link" placeholder="lien, ex : http://commerce.com">
+                    </p>
+                    <p>
+                        <select name="type" id="type" placeholder="type">
+                            <option value="a">type 1</option>
+                            <option value="b">type 2</option>
+                            <option value="c">type 3</option>
+                            <option value="d">type 4</option>
+                        </select>
+                    </p>
+                    <span>Choisissez des photos (jusqu'a 4)</span>
+                    <p>
+                        <input type="file" name="photo1" id="photo1">
+                    </p>
+                    <p>
+                        <input type="file" name="photo2" id="photo2">
+                    </p>
+                    <p>
+                        <input type="file" name="photo3" id="photo3">
+                    </p>
+                    <p>
+                        <input type="file" name="photo4" id="photo4">
+                    </p>
+                    <p>
+                        <button type="submit">Envoyer</button>
+                    </p>
+                </form>
             </div>
-        </nav>
+        </div>
