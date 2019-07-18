@@ -22,6 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/create.js"></script>
     <link rel="stylesheet" href="../../reset.css">
     <link rel="stylesheet" href="../../style.css">
     <title><?= $title ?></title>
@@ -36,6 +37,9 @@
                 </div>
             </nav>
             <h3>Création</h3>
+            <p class="success-create">
+                <?= $_SESSION["success"] ?>
+            </p>
             <div class="create">
                 <form action="#" method="post">
                 <div class="create-left">

@@ -7,8 +7,8 @@
         $_SESSION["errors"] = null;
         $_SESSION["success"] = null;
 
-        //Connection utilisateur -> retirer la ligne pour que l'utilisateur ne soit pas connecté | ajouter pour le contraire.
-        // $_SESSION["auth"] = true;
+        //Connection utilisateur -> décommenter pour vous connecter sans mot de passe.
+        //$_SESSION["auth"] = true;
     
         if($_SESSION["auth"] === false){
             $_SESSION["success"] = "Bonjour, entrez votre nom et votre password pour vous connecter";
@@ -16,6 +16,32 @@
         if($_SESSION["auth"] !== true and $_SESSION["auth"] !== false){
             $_SESSION["errors"] = "Pour accéder à cette page, vous devez vous connecter !";
             $_SESSION["auth"] = false;
+        }
+
+
+        if(!empty($_POST)){
+
+            $name = $_POST["name"];
+            $password = $_POST["password"];
+
+            require_once "../app/pdo/pdo.php";
+            
+            $req = $pdo->prepare("SELECT * FROM users WHERE (name= ?) AND (pass= ?)");
+            $req->execute([$name, $password]);
+            $result = $req->fetchAll();
+
+            if($result){
+
+                $_SESSION["success"] = "Vous etes connectés";
+                $_SESSION["auth"] = true;
+                header("location: index.php?admin=create");
+
+            } else {
+
+                $_SESSION["errors"] = "nom ou mot de passe invalide";
+
+            }
+            
         }
     }
 ?>
@@ -39,7 +65,9 @@
             </nav>
             <div class="connection">
                 <h3>Connection</h3>
-
+                <?php if($_SESSION["success"] !== null and $_SESSION["errors"] !== null){
+                    $_SESSION["success"] = null;
+                } ?>
                 <?php if($_SESSION["success"] !== null) : ?>
                     <p class="success">
                         <?= $_SESSION["success"] ?>
@@ -54,15 +82,15 @@
 
                 <form action="#" method="post">
                     <p>
-                        <input id="user-name" type="text" placeholder="Name">
+                        <input id="user-name" type="text" name="name" placeholder="Name">
                     </p>
                     <p>
-                        <input id="user-password" type="text" placeholder="password">
+                        <input id="user-password" type="password" name="password" placeholder="password">
                     </p>
-                </form>
                     <p>
                         <button id="user-button" type="submit">Se connecter</button>
                     </p>
+                </form>
             </div>
         </div>
         </div
