@@ -75,7 +75,7 @@
                             <option value="5">Accessoires</option>
                         </select>
                     </p>
-                    <span>Choisissez des photos (jusqu'a 4)</span>
+                    <span>Choisissez des photos (de 1 à 4)</span>
                     <p>
                         <input type="file" name="photo1" id="photo1">
                     </p>
