@@ -1,27 +1,23 @@
 <?php 
     session_start();
 
-    if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=connection"){
-
+    if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=connection" and $_SERVER["REQUEST_URI"] !== "/admin/"){
         header("location: ../../index.php");
+    } else {
+        $_SESSION["errors"] = null;
+        $_SESSION["success"] = null;
 
-    } 
-
-    $_SESSION["errors"] = null;
-    $_SESSION["success"] = null;
-    $link_admin = "#";
-
-    $_SESSION["auth"] = true;
-
-    if($_SESSION["auth"] === false){
-        $_SESSION["success"] = "Bonjour, entrez votre nom et votre password pour vous connecter";
+        //Connection utilisateur -> retirer la ligne pour que l'utilisateur ne soit pas connecté | ajouter pour le contraire.
+        // $_SESSION["auth"] = true;
+    
+        if($_SESSION["auth"] === false){
+            $_SESSION["success"] = "Bonjour, entrez votre nom et votre password pour vous connecter";
+        }
+        if($_SESSION["auth"] !== true and $_SESSION["auth"] !== false){
+            $_SESSION["errors"] = "Pour accéder à cette page, vous devez vous connecter !";
+            $_SESSION["auth"] = false;
+        }
     }
-    if($_SESSION["auth"] !== true and $_SESSION["auth"] !== false){
-        $_SESSION["errors"] = "Pour accéder à cette page, vous devez vous connecter !";
-        $_SESSION["auth"] = false;
-    }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
