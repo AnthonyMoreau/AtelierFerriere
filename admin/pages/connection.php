@@ -44,6 +44,8 @@
             
         }
     }
+require "../app/app/html.php";
+$html = new HTML();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +53,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../reset.css">
-    <link rel="stylesheet" href="../../style.css">
+    <?php $html->css("../../reset.css") ?>
+    <?php $html->css("../../style.css") ?>
     <title><?= $title ?></title>
 </head>
 <body>
