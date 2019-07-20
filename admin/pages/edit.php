@@ -39,18 +39,20 @@
                 <a href="<?= get_link("admin")?>create">Creation</a>
             </div>
         </nav>
-        <div class="choice">
-            <p>
-                <select name="categories" id="categories"type>
-                    <option value="tous">Tous</option>
-                    <option value="actualites">Actualités</option>
-                    <option value="professionnels">Professionnels</option>
-                    <option value="particuliers">Particuliers</option>
-                    <option value="mobilier">Mobilier</option>
-                    <option value="accessoires">Accessoires</option>
-                </select>
-            </p>
-        </div>
+            <?php if(empty($_POST)) : ?>
+            <div class="choice">
+                <p>
+                    <select name="categories" id="categories"type>
+                        <option value="tous">Tous</option>
+                        <option value="actualites">Actualités</option>
+                        <option value="professionnels">Professionnels</option>
+                        <option value="particuliers">Particuliers</option>
+                        <option value="mobilier">Mobilier</option>
+                        <option value="accessoires">Accessoires</option>
+                    </select>
+                </p>
+            </div>
+            <?php endif ?>
         <div class="edit-posts">
 
             <?php foreach($results as $key => $post) : ?>
