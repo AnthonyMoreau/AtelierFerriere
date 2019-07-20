@@ -62,3 +62,13 @@ function active($page, $page_active){
         return "active";
     }
 }
+
+function border_warning($section){
+    $a = null;
+    if(!empty($_POST)){
+        if(empty($section)){
+            $a =  "border: 2px solid rgb(193, 44, 50);";
+        }
+    }
+    return $a;
+}

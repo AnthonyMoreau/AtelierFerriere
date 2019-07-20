@@ -11,3 +11,30 @@ input options type-articles
 
 button Envoyer
 
+
+
+//base de donnée sans photo.
+
+ array(10) {
+  ["title"]=>
+  string(9) "Mon titre"
+  ["description"]=>
+  string(14) "Ma description"
+  ["link_title"]=>
+  string(17) "Mon titre du lien"
+  ["link"]=>
+  string(19) "http//:commerce.com"
+  ["type"]=>
+  string(5) "type3"
+  ["categories"]=>
+  string(12) "particuliers"
+  ["photo1"]=>
+  string(0) ""
+  ["photo2"]=>
+  string(0) ""
+  ["photo3"]=>
+  string(0) ""
+  ["photo4"]=>
+  string(0) ""
+}
+ 

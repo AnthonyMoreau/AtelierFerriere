@@ -44,6 +44,7 @@
             
         }
     }
+$_SESSION["verif_type"] = 0;
 require "../app/app/html.php";
 $html = new HTML();
 ?>
@@ -96,3 +97,6 @@ $html = new HTML();
             </div>
         </div>
         </div
+
+
+<?php require "../template-parts/footer-admin.php" ?>

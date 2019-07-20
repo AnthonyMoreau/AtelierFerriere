@@ -14,6 +14,81 @@
             header("location: index.php?admin=connection");
         }
     }
+
+    
+    if(!empty($_POST)){
+
+        $_title = $_POST["title"];
+        $description = $_POST["description"];
+        $link_title = $_POST["link_title"];
+        $link = $_POST["link"];
+        $type = $_POST["type"];
+        $categories = $_POST["categories"];
+        
+
+        if(!empty($_title) AND
+           !empty($description)){
+
+               if($_SESSION["verif_type"] === 0 AND ($type === "type1" || $categories === "actualites")){
+
+                    $_SESSION["verif_type"]++;
+                    ?> 
+                        <script type="text/javascript">
+                            alert("êtes vous sur pour Type1 ou Actualités");
+                        </script>
+                    <?php
+
+                } else {
+
+                    $pattern = "/[a-zA-Zéèàçêâîôëäïö0-9 ]+/";
+                    preg_match($pattern, $_title, $matchs);
+    
+                    if($matchs[0] === $_title){
+    
+                        require "../app/pdo/pdo.php";
+                
+                        $req = $pdo->prepare("INSERT INTO posts SET 
+    
+                            title= ? ,
+                            description = ? ,
+                            link_title = ? ,
+                            link = ? ,
+                            type = ? ,
+                            categories = ?
+    
+                        ");
+                        $req->execute([
+    
+                            $_title, 
+                            $description, 
+                            $link_title, 
+                            $link, 
+                            $type, 
+                            $categories
+    
+                        ]);
+                        ?>
+                            <script type="text/javascript">
+                                alert("Votre article à bien été posté");
+                            </script>
+                        <?php
+                        $_SESSION["verif_type"] = 0;
+
+                        $_title = "nouvel article" ;
+                        $description = "Nouvelle description" ;
+                        $link_title = "";
+                        $link = "";
+                    }
+                }
+        } else {
+            ?> 
+                <script type="text/javascript">
+                    alert("Vous n'avez pas rempli tous les champs !");
+                </script>
+            <?php
+        }
+
+    }
 require "../app/app/html.php";
 $html = new HTML();
 ?>
@@ -45,35 +120,35 @@ $html = new HTML();
                 <form action="#" method="post">
                 <div class="create-left">
                     <p>
-                        <input type="text" name="title" id="title" placeholder="Titre">
+                        <input type="text" name="title" id="title" style="<?= border_warning($_title) ?>" placeholder="Titre" value="<?php if(!empty($_title)){echo $_title;} ?>">
                     </p>
                     <p>
-                        <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+                        <textarea name="description" id="description" style="<?= border_warning($description) ?>" cols="30" rows="10" placeholder="Description"><?php if(!empty($description)){echo $description;} ?></textarea>
                     </p>
                     <p>
-                        <input type="text" name="link_title" id="link_title" placeholder="Titre du lien">
+                        <input type="text" name="link_title" id="link_title" placeholder="Titre du lien" value="<?php if(!empty($link_title)){echo $link_title;} ?>">
                     </p>
                     <p>
-                        <input class="link-create" type="text" name="link" id="link" placeholder="ex : http://commerce.com">
+                        <input class="link-create" type="text" name="link" id="link" placeholder="ex : http://commerce.com" value="<?php if(!empty($link)){echo $link;} ?>">
                     </p>
                 </div>
                 <div class="create-right">
                     <span>articles : choisissez un type et une catégorie</span>
                     <p>
-                        <select name="type" id="type" placeholder="type">
-                            <option value="a">type 1</option>
-                            <option value="b">type 2</option>
-                            <option value="c">type 3</option>
-                            <option value="d">type 4</option>
+                        <select name="type" id="type">
+                            <option value="type1">type 1</option>
+                            <option value="type2">type 2</option>
+                            <option value="type3">type 3</option>
+                            <option value="type4">type 4</option>
                         </select>
                     </p>
                     <p>
-                        <select name="type" id="categories" placeholder="type">
-                            <option value="1">Actualités</option>
-                            <option value="2">professionnels</option>
-                            <option value="3">Particuliers</option>
-                            <option value="4">Mobilier</option>
-                            <option value="5">Accessoires</option>
+                        <select name="categories" id="categories"type>
+                            <option value="actualites">Actualités</option>
+                            <option value="professionnels">Professionnels</option>
+                            <option value="particuliers">Particuliers</option>
+                            <option value="mobilier">Mobilier</option>
+                            <option value="accessoires">Accessoires</option>
                         </select>
                     </p>
                     <span>Choisissez des photos (de 1 à 4)</span>
@@ -96,3 +171,6 @@ $html = new HTML();
                 </form>
             </div>
         </div>
+
+
+<?php require "../template-parts/footer-admin.php" ?>
