@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.6.6deb5
+- https://www.phpmyadmin.net
+-
+- Client :  localhost:3306
+- Généré le :  Dim 21 Juillet 2019 à 13:43
+- Version du serveur :  5.7.26-0ubuntu0.18.04.1
+- Version de PHP :  7.2.19-0ubuntu0.18.04.1
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="atelier" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="posts">
+                CREATE TABLE `posts` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `title` varchar(255) NOT NULL,
+                  `description` longtext NOT NULL,
+                  `link_title` varchar(255) DEFAULT NULL,
+                  `link` varchar(255) DEFAULT NULL,
+                  `type` varchar(6) NOT NULL,
+                  `categories` varchar(20) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(255) NOT NULL,
+                  `pass` varchar(255) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Base de données :  'atelier'
+    -->
+    <database name="atelier">
+        <!-- Table posts -->
+        <table name="posts">
+            <column name="id">21</column>
+            <column name="title">mon troisieme article</column>
+            <column name="description">mon metropolis article</column>
+            <column name="link_title">lien</column>
+            <column name="link">http://google.com</column>
+            <column name="type">type3</column>
+            <column name="categories">accessoires</column>
+        </table>
+        <table name="posts">
+            <column name="id">23</column>
+            <column name="title">Wesh ca marche</column>
+            <column name="description">professionnel</column>
+            <column name="link_title">professionnel</column>
+            <column name="link">http://google.com</column>
+            <column name="type">type2</column>
+            <column name="categories">professionnels</column>
+        </table>
+        <table name="posts">
+            <column name="id">24</column>
+            <column name="title">titre 2</column>
+            <column name="description">titre 2</column>
+            <column name="link_title"></column>
+            <column name="link"></column>
+            <column name="type">type1</column>
+            <column name="categories">actualites</column>
+        </table>
+        <table name="posts">
+            <column name="id">25</column>
+            <column name="title">Test article présentation modification</column>
+            <column name="description">Ma description pr
+ésentation</column>
+            <column name="link_title"></column>
+            <column name="link"></column>
+            <column name="type">type1</column>
+            <column name="categories">actualites</column>
+        </table>
+        <table name="posts">
+            <column name="id">26</column>
+            <column name="title">professionnel</column>
+            <column name="description">Professionnels</column>
+            <column name="link_title"></column>
+            <column name="link"></column>
+            <column name="type">type3</column>
+            <column name="categories">professionnels</column>
+        </table>
+        <table name="posts">
+            <column name="id">27</column>
+            <column name="title">particulier</column>
+            <column name="description">particulier</column>
+            <column name="link_title"></column>
+            <column name="link"></column>
+            <column name="type">type3</column>
+            <column name="categories">particuliers</column>
+        </table>
+        <table name="posts">
+            <column name="id">28</column>
+            <column name="title">test mobilier</column>
+            <column name="description">Nouvelle description</column>
+            <column name="link_title"></column>
+            <column name="link"></column>
+            <column name="type">type1</column>
+            <column name="categories">mobilier</column>
+        </table>
+        <table name="posts">
+            <column name="id">29</column>
+            <column name="title">test mobilier</column>
+            <column name="description">test</column>
+            <column name="link_title"></column>
+            <column name="link"></column>
+            <column name="type">type3</column>
+            <column name="categories">mobilier</column>
+        </table>
+        <table name="posts">
+            <column name="id">31</column>
+            <column name="title">test PRO</column>
+            <column name="description">description PRO</column>
+            <column name="link_title"></column>
+            <column name="link"></column>
+            <column name="type">type3</column>
+            <column name="categories">professionnels</column>
+        </table>
+        <table name="posts">
+            <column name="id">32</column>
+            <column name="title">test lien</column>
+            <column name="description">Wesh ma geuele bien trankillement boobs</column>
+            <column name="link_title">Lien de test</column>
+            <column name="link">https://www.youtube.com/</column>
+            <column name="type">type3</column>
+            <column name="categories">accessoires</column>
+        </table>
+        <!-- Table users -->
+        <table name="users">
+            <column name="id">1</column>
+            <column name="name">admin</column>
+            <column name="pass">admin</column>
+        </table>
+        <table name="users">
+            <column name="id">2</column>
+            <column name="name">root</column>
+            <column name="pass">root</column>
+        </table>
+        <table name="users">
+            <column name="id">3</column>
+            <column name="name">boobs</column>
+            <column name="pass">boobs</column>
+        </table>
+    </database>
+</pma_xml_export>
