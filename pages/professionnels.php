@@ -7,8 +7,8 @@ $req = $pdo->prepare("SELECT * FROM posts WHERE categories= ?");
 $req->execute(["professionnels"]);
 $results = array_reverse($req->fetchAll());
 
-var_dump($results);
-
+$imagine = new Imagine\Gd\Imagine();
+var_dump($imagine);
 ?>
 <main class="main">
 

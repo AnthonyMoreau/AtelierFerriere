@@ -1,5 +1,6 @@
 <?php
 
+    
     session_start();
 
     if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=create"){
@@ -14,9 +15,9 @@
             header("location: index.php?admin=connection");
         }
     }
-
     
     if(!empty($_POST)){
+
 
         $_title = $_POST["title"];
         $description = $_POST["description"];
@@ -91,6 +92,7 @@
     }
 require "../app/app/html.php";
 $html = new HTML();
+if(!empty($_FILES) AND isset($req)){require "photos.php";}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -117,13 +119,13 @@ $html = new HTML();
                 <?= $_SESSION["success"] ?>
             </p>
             <div class="create">
-                <form action="#" method="post">
+                <form action="" method="POST" enctype="multipart/form-data">
                 <div class="create-left">
                     <p>
-                        <input type="text" name="title" id="title" style="<?= border_warning($_title) ?>" placeholder="Titre" value="<?php if(!empty($_title)){echo $_title;} ?>">
+                        <input type="text" name="title" id="title" style="<?php if(isset($_title)){echo border_warning($_title);} ?>" placeholder="Titre" value="<?php if(!empty($_title)){echo $_title;} ?>">
                     </p>
                     <p>
-                        <textarea name="description" id="description" style="<?= border_warning($description) ?>" cols="30" rows="10" placeholder="Description"><?php if(!empty($description)){echo $description;} ?></textarea>
+                        <textarea name="description" id="description" style="<?php if(isset($description)){echo border_warning($description);} ?>" cols="30" rows="10" placeholder="Description"><?php if(!empty($description)){echo $description;} ?></textarea>
                     </p>
                     <p>
                         <input type="text" name="link_title" id="link_title" placeholder="Titre du lien" value="<?php if(!empty($link_title)){echo $link_title;} ?>">
@@ -153,16 +155,20 @@ $html = new HTML();
                     </p>
                     <span>Choisissez des photos (de 1 à 4)</span>
                     <p>
-                        <input type="file" name="photo1" id="photo1">
+                        <input type="file" name="photo1" id="photo1" multiple>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
                     </p>
                     <p>
-                        <input type="file" name="photo2" id="photo2">
+                        <input type="file" name="photo2" id="photo2" multiple>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
                     </p>
                     <p>
-                        <input type="file" name="photo3" id="photo3">
+                        <input type="file" name="photo3" id="photo3" multiple>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
                     </p>
                     <p>
-                        <input type="file" name="photo4" id="photo4">
+                        <input type="file" name="photo4" id="photo4" multiple>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
                     </p>
                 </div>
                     <p>

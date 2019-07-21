@@ -6,8 +6,6 @@ $req = $pdo->prepare("SELECT * FROM posts WHERE categories= ?");
 $req->execute(["actualites"]);
 $results = array_reverse($req->fetchAll());
 
-var_dump($results);
-
 ?>
 <main class="main">
 

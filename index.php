@@ -5,6 +5,7 @@
     $_SESSION["errors"] = "";
 
     require "app/functions/functions.php";
+    require 'vendor/autoload.php';
 
     if(isset($_GET["page"])){
 
