@@ -7,6 +7,10 @@ $req = $pdo->prepare("SELECT * FROM posts WHERE categories= ?");
 $req->execute(["particuliers"]);
 $results = array_reverse($req->fetchAll());
 
+if(!empty($req)){
+    require "app/openphotos.php";
+}
+$imagine = new Imagine\Gd\Imagine();
 var_dump($results);
 
 ?>

@@ -72,3 +72,14 @@ function border_warning($section){
     }
     return $a;
 }
+
+
+function lengthFiles($files){
+    $count = 0;
+    foreach($files as $item => $value){
+        if (!empty($files[$item]['tmp_name'])){
+            $count++;
+        }
+    }
+    return $count;
+}
