@@ -18,77 +18,91 @@
     
     if(!empty($_POST)){
 
+        if(lengthFiles($_FILES) > 0){
 
-        $_title = $_POST["title"];
-        $description = $_POST["description"];
-        $link_title = $_POST["link_title"];
-        $link = $_POST["link"];
-        $type = $_POST["type"];
-        $categories = $_POST["categories"];
-        
-
-        if(!empty($_title) AND
-           !empty($description)){
-
-               if($_SESSION["verif_type"] === 0 AND ($type === "type1" || $categories === "actualites")){
-
-                    $_SESSION["verif_type"]++;
-                    ?> 
-                        <script type="text/javascript">
-                            alert("êtes vous sur pour Type1 ou Actualités");
-                        </script>
-                    <?php
-
-                } else {
-
-                    $pattern = "/[a-zA-Zéèàçêâîôëäïö0-9 ]+/";
-                    preg_match($pattern, $_title, $matchs);
+            $date = $_POST["date"];
+            $_title = $_POST["title"];
+            $description = $_POST["description"];
+            $link_title = $_POST["link_title"];
+            $link = $_POST["link"];
+            $type = $_POST["type"];
+            $categories = $_POST["categories"];
+            
     
-                    if($matchs[0] === $_title){
+            if(!empty($_title) AND
+               !empty($description)){
     
-                        require "../app/pdo/pdo.php";
-                
-                        $req = $pdo->prepare("INSERT INTO posts SET 
+                   if($_SESSION["verif_type"] === 0 AND ($type === "type1" || $categories === "actualites")){
     
-                            title= ? ,
-                            description = ? ,
-                            link_title = ? ,
-                            link = ? ,
-                            type = ? ,
-                            categories = ?
-    
-                        ");
-                        $req->execute([
-    
-                            $_title, 
-                            $description, 
-                            $link_title, 
-                            $link, 
-                            $type, 
-                            $categories
-    
-                        ]);
-                        ?>
+                        $_SESSION["verif_type"]++;
+                        ?> 
                             <script type="text/javascript">
-                                alert("Votre article à bien été posté");
+                                alert("êtes vous sur pour Type1 ou Actualités");
                             </script>
                         <?php
-                        $_SESSION["verif_type"] = 0;
-
-                        $_title = "nouvel article" ;
-                        $description = "Nouvelle description" ;
-                        $link_title = "";
-                        $link = "";
+    
+                    } else {
+    
+                        $pattern = "/[a-zA-Zéèàçêâîôëäïö0-9 ]+/";
+                        preg_match($pattern, $_title, $matchs);
+        
+                        if($matchs[0] === $_title){
+        
+                            require "../app/pdo/pdo.php";
+                    
+                            $req = $pdo->prepare("INSERT INTO posts SET 
+    
+                                date= ?,
+                                title= ? ,
+                                description = ? ,
+                                link_title = ? ,
+                                link = ? ,
+                                type = ? ,
+                                categories = ?
+        
+                            ");
+                            $req->execute([
+                                
+                                $date,
+                                $_title, 
+                                $description, 
+                                $link_title, 
+                                $link, 
+                                $type, 
+                                $categories
+        
+                            ]);
+                            ?>
+                                <script type="text/javascript">
+                                    alert("Votre article à bien été posté");
+                                </script>
+                            <?php
+                            $_SESSION["verif_type"] = 0;
+    
+                            $_title = "nouvel article" ;
+                            $description = "Nouvelle description" ;
+                            $link_title = "";
+                            $link = "";
+                        }
                     }
-                }
+                    
+            } else {
+                ?> 
+                    <script type="text/javascript">
+                        alert("Vous n'avez pas rempli tous les champs !");
+                    </script>
+                <?php
+            }
+
         } else {
-            ?> 
+            ?>
+
                 <script type="text/javascript">
-                    alert("Vous n'avez pas rempli tous les champs !");
+                    alert("il faut au moins une photo !");
                 </script>
+
             <?php
         }
-
     }
 require "../app/app/html.php";
 $html = new HTML();
@@ -121,6 +135,9 @@ if(!empty($_FILES) AND isset($req)){require "photos.php";}
             <div class="create">
                 <form action="" method="POST" enctype="multipart/form-data">
                 <div class="create-left">
+                    <p>
+                        <input type="text" name="date" id="date" placeholder="Date" value="<?php if(!empty($date)){echo $date;} ?>">
+                    </p>
                     <p>
                         <input type="text" name="title" id="title" style="<?php if(isset($_title)){echo border_warning($_title);} ?>" placeholder="Titre" value="<?php if(!empty($_title)){echo $_title;} ?>">
                     </p>

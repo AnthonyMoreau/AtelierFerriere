@@ -21,9 +21,21 @@ var_dump($imagine);
         <div class="title">
             <h2><?= $post->title ?></h2>
         </div>
+
+        <?php if(!empty($post->date)) : ?>
+
+        <div class="date">
+            <p>
+                <?= $post->date ?>
+            </p>
+        </div>
+
+        <?php endif; ?>
+
         <div class="description">
             <p><?= $post->description ?></p>
         </div>
+        
             <?php if($post->link_title !== null AND $post->link !== null) :?>
 
                 <a target="_blank" href="<?= $post->link ?>"><h5><?= $post->link_title ?></h5></a>

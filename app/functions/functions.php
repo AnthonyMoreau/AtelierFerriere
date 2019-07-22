@@ -4,10 +4,6 @@
  * @param: mixed
  * @return: string
  */
-function verif_link(){
-    $link = "ok";
-    return $link;
-}
 function dd($variable){
     ?> <pre> <?php
     var_dump($variable);
@@ -62,6 +58,11 @@ function active($page, $page_active){
     }
 }
 
+/**
+ * champs oubliés
+ * @param: string;
+ * @return: string;
+ */
 function border_warning($section){
     $a = null;
     if(!empty($_POST)){
@@ -72,7 +73,11 @@ function border_warning($section){
     return $a;
 }
 
-
+/**
+ * retourne le nombres de photos posté lors de l'envoie
+ * @param: tableaux $_FILES
+ * @return: int 
+ */
 function lengthFiles($files){
     $count = 0;
     foreach($files as $item => $value){
@@ -81,4 +86,9 @@ function lengthFiles($files){
         }
     }
     return $count;
+}
+
+function verif_link(){
+    $link = "ok";
+    return $link;
 }
