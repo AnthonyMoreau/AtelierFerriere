@@ -1,5 +1,14 @@
 {
+    "name": "nigma/atelier-ferriere",
+    "authors": [
+        {
+            "name": "AnthonyMoreau",
+            "email": "a82moreau@gmail.com"
+        }
+    ],
     "require": {
-        "imagine/imagine": "^1.2"
+        "imagine/imagine": "^1.2",
+        "calcinai/php-imagick": "^0.1.2"
     }
+    
 }

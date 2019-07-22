@@ -81,7 +81,7 @@ function border_warning($section){
 function lengthFiles($files){
     $count = 0;
     foreach($files as $item => $value){
-        if (!empty($files[$item]['tmp_name'])){
+        if (!empty($files[$item]['name'])){
             $count++;
         }
     }

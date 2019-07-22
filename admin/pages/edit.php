@@ -39,6 +39,18 @@
             </div>
         </nav>
             <?php if(empty($_POST)) : ?>
+            <p><?php if(!empty($_SESSION["id"])) : {?>
+                <p><?= $_SESSION["id"] ?></p> à bien été supprimer <?php } ?></p>
+            <?php endif ?>
+            <p><?php if(!empty($_SESSION["id-modif"])) : {?>
+                <p><?= $_SESSION["id-modif"] ?></p> à bien été modifié <?php } ?></p>
+            <?php endif ?>
+            <?php 
+            
+                $_SESSION["id"] = "";
+
+                $_SESSION["id-modif"] = "";
+            ?>
             <div class="choice">
                 <p>
                     <select name="categories" id="categories"type>
@@ -52,12 +64,10 @@
                 </p>
             </div>
             <?php endif ?>
+
         <div class="edit-posts">
 
             <?php foreach($results as $key => $post) : ?>
-
-            
-
             <?php 
 
                 if($_POST){
@@ -73,6 +83,8 @@
                             <input name="<?= $post->id ?>" type="submit" value="modification">
                         </form>
                         <?php
+
+                        $_SESSION["id-modif"] = $post->title;
 
                     }
                     if($_POST[$post->id] === "modification"){
@@ -108,18 +120,19 @@
                         $category = $post->categories;
 
                         $photos = scandir("../photos/$category");
-                        var_dump($id);
-                        dd($photos);
 
-                        $req = $pdo->query("DELETE FROM posts WHERE id=$id");
+                        foreach($photos as $key => $value){
+                            $pos = strpos($value, $id);
+                            if($pos !== false AND $pos !== 0){
+                                unlink("../photos/$category/$value");
+                            }
+                        }
 
-                        ?>
-                            <script type="text/javascript">
-                                alert("Votre article à bien été supprimer");
-                            </script>
-                        <?php
+                        $pdo->query("DELETE FROM posts WHERE id=$id");
 
                         $_SESSION["location"] = true;
+                        $_SESSION["id"] = $post->title;
+
                         if($_SESSION["location"]){
                             header("location: index.php?admin=edit");
                         }

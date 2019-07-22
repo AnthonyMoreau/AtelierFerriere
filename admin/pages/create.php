@@ -73,11 +73,14 @@
                                 <script type="text/javascript">
                                     alert("Votre article à bien été posté");
                                 </script>
+
                             <?php
+
                             $_SESSION["verif_type"] = 0;
-    
+
                             $_title = "nouvel article" ;
                             $description = "Nouvelle description" ;
+                            $date = "";
                             $link_title = "";
                             $link = "";
                         }
@@ -103,7 +106,9 @@
     }
 require "../app/app/html.php";
 $html = new HTML();
+
 if(!empty($_FILES) AND isset($req)){require "photos.php";}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -170,19 +175,19 @@ if(!empty($_FILES) AND isset($req)){require "photos.php";}
                     <span>Choisissez des photos (de 1 à 4)</span>
                     <p>
                         <input type="file" name="photo1" id="photo1" multiple>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
                     </p>
                     <p>
                         <input type="file" name="photo2" id="photo2" multiple>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
                     </p>
                     <p>
                         <input type="file" name="photo3" id="photo3" multiple>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
                     </p>
                     <p>
                         <input type="file" name="photo4" id="photo4" multiple>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
                     </p>
                 </div>
                     <p>

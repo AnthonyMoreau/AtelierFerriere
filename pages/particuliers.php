@@ -7,21 +7,29 @@ $req = $pdo->prepare("SELECT * FROM posts WHERE categories= ?");
 $req->execute(["particuliers"]);
 $results = array_reverse($req->fetchAll());
 
-if(!empty($req)){
-    require "app/openphotos.php";
-}
-$imagine = new Imagine\Gd\Imagine();
-var_dump($results);
-
 ?>
 <main class="main">
 
 <div class="site-content">
 
     <div class="posts-particulier">
-    
-    <?php foreach($results as $key => $post) : ?>
 
+    <?php $photos = scandir("photos/particuliers") ?>
+    <?php foreach($results as $key => $post) : ?>
+        <?php $id = $post->id; 
+
+        foreach($photos as $key => $value){
+
+            $pos = strpos($value, $id);
+            
+            if($pos !== false AND $pos !== 0){
+
+                ?><img src="photos/particuliers/<?= $value ?>" alt=""><?php
+
+            }
+        }
+        ?>
+        <!-- fin photo -->
         <div class="title">
             <h2><?= $post->title ?></h2>
         </div>
