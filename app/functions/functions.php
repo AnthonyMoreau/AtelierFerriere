@@ -20,7 +20,6 @@ function dd($variable){
  * @return: mixed
  */
 function route($tabs, $page, $parent, $redirection){
-    session_start();
     $x = in_array($page, $tabs);
     if($x){
         foreach($tabs as $name){

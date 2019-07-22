@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require "../app/functions/functions.php";
 require '../vendor/autoload.php';
 
