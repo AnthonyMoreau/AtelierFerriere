@@ -1,6 +1,4 @@
 <?php 
-    session_start();
-
     if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=connection" and $_SERVER["REQUEST_URI"] !== "/admin"){
         header("location: ../../index.php");
     } else {

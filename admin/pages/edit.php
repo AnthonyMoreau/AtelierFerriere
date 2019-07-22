@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
 
     if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=edit"){
 
@@ -19,6 +17,7 @@
 
     $req = $pdo->query("SELECT * FROM posts");
     $results = array_reverse($req->fetchAll());
+
 ?>
 
 <!DOCTYPE html>
@@ -89,20 +88,28 @@
                         header("location: index.php?admin=edit");
                     }
                     if($_POST[$post->id] === "supprimer"){
-                        ?>
-                        <form action="" method="post">
 
-                            <p>etes vous sur de vouloir supprimer cet article</p>
-                            <input type="text" name="title" value="<?= $post->title ?>">
-                            <textarea type="text" name="description"><?= $post->description ?></textarea>
-                            <input name="<?= $post->id ?>" type="submit" value="suppression">
-                        </form>
+                        ?>
+
+                            <form action="" method="post">
+                                <p>etes vous sur de vouloir supprimer cet article</p>
+                                <input type="text" name="title" value="<?= $post->title ?>">
+                                <textarea type="text" name="description"><?= $post->description ?></textarea>
+                                <input name="<?= $post->id ?>" type="submit" value="suppression">
+                            </form>
+
                         <?php
 
                     }
+
                     if($_POST[$post->id] === "suppression"){
 
                         $id = $post->id;
+                        $category = $post->categories;
+
+                        $photos = scandir("../photos/$category");
+                        var_dump($id);
+                        dd($photos);
 
                         $req = $pdo->query("DELETE FROM posts WHERE id=$id");
 
@@ -111,6 +118,7 @@
                                 alert("Votre article à bien été supprimer");
                             </script>
                         <?php
+
                         $_SESSION["location"] = true;
                         if($_SESSION["location"]){
                             header("location: index.php?admin=edit");

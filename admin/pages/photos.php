@@ -23,25 +23,13 @@
 
         if($length > 0){
 
-            if($length === 1){
-
+            foreach($_FILES as $item => $value){
 
                 if (!empty($_FILES[$item]['tmp_name'])){
                     $photo = $_FILES[$item]['tmp_name'];
                     $imagine->open($photo)->thumbnail($size, 'inset')->save('../photos'.'/'. $id .'/' . $count . '_' . $__title);
                 }
 
-                
-
-            }else{
-
-                foreach($_FILES as $item => $value){
-                    if (!empty($_FILES[$item]['tmp_name'])){
-                        $photo = $_FILES[$item]['tmp_name'];
-                        $imagine->open($photo)->thumbnail($size, 'inset')->save('../photos'.'/'. $id .'/' . $count . '_' . $__title);
-                        $count++;
-                    }
-                }
             }
         }
     }

@@ -1,8 +1,5 @@
 <?php
 
-    
-    session_start();
-
     if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=create"){
 
         header("location: ../../index.php");
@@ -85,7 +82,7 @@
                             $link = "";
                         }
                     }
-                    
+
             } else {
                 ?> 
                     <script type="text/javascript">
