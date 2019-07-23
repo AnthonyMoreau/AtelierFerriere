@@ -3,31 +3,40 @@
 require "template-parts/header.php";
 require "app/pdo/pdo.php";
 
-$req = $pdo->prepare("SELECT * FROM posts WHERE categories= ?");
-$req->execute(["particuliers"]);
-$results = array_reverse($req->fetchAll());
+$self = isset($_GET["page"]) ? $_GET["page"] : null;
+
+if($self){
+
+    $req = $pdo->prepare("SELECT * FROM posts WHERE categories= ?");
+    $req->execute([$self]);
+    $results = array_reverse($req->fetchAll());
+    $way = ($self) ? "photos/$self" : null;
+}
 
 ?>
 <main class="main">
 
 <div class="site-content">
 
-    <div class="posts-particulier">
+    <div class="posts-<?= $self ?>">
 
-    <?php $photos = scandir("photos/particuliers") ?>
+    <?php $photos = ($way) ? scandir($way) : null ?>
+
     <?php foreach($results as $key => $post) : ?>
-        <?php $id = $post->id; 
+    
+        <?php 
+            if($photos){
+                foreach($photos as $key => $value){
+                    $pos = strpos($value, $post->id);
+                    if($pos !== false AND $pos !== 0){
+                        ?>
 
-        foreach($photos as $key => $value){
+                            <img src="<?= $way ?>/<?= $value ?>" alt="<?= $post->title ?>">
 
-            $pos = strpos($value, $id);
-            
-            if($pos !== false AND $pos !== 0){
-
-                ?><img src="photos/particuliers/<?= $value ?>" alt=""><?php
-
+                        <?php
+                    }
+                }
             }
-        }
         ?>
         <!-- fin photo -->
         <div class="title">
@@ -50,6 +59,4 @@ $results = array_reverse($req->fetchAll());
 
 </main>
 <?php
-
-
 require "template-parts/footer.php";
