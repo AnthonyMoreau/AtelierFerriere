@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Client :  localhost:3306
-- Généré le :  Dim 21 Juillet 2019 à 13:43
+- Généré le :  Ven 26 Juillet 2019 à 00:38
 - Version du serveur :  5.7.26-0ubuntu0.18.04.1
 - Version de PHP :  7.2.19-0ubuntu0.18.04.1
 -->
@@ -19,22 +19,15 @@
             <pma:table name="posts">
                 CREATE TABLE `posts` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `date` varchar(60) DEFAULT NULL,
                   `title` varchar(255) NOT NULL,
                   `description` longtext NOT NULL,
                   `link_title` varchar(255) DEFAULT NULL,
                   `link` varchar(255) DEFAULT NULL,
-                  `type` varchar(6) NOT NULL,
+                  `type` varchar(15) NOT NULL,
                   `categories` varchar(20) NOT NULL,
                   PRIMARY KEY (`id`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
-            </pma:table>
-            <pma:table name="users">
-                CREATE TABLE `users` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `name` varchar(255) NOT NULL,
-                  `pass` varchar(255) NOT NULL,
-                  PRIMARY KEY (`id`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+                ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
             </pma:table>
         </pma:database>
     </pma:structure_schemas>
@@ -45,111 +38,114 @@
     <database name="atelier">
         <!-- Table posts -->
         <table name="posts">
-            <column name="id">21</column>
-            <column name="title">mon troisieme article</column>
-            <column name="description">mon metropolis article</column>
+            <column name="id">91</column>
+            <column name="date">TEST TYPE</column>
+            <column name="title">MON TITRE</column>
+            <column name="description">description </column>
+            <column name="link_title">titre</column>
+            <column name="link">http://google.com</column>
+            <column name="type">type-1</column>
+            <column name="categories">professionnels</column>
+        </table>
+        <table name="posts">
+            <column name="id">92</column>
+            <column name="date">Ma nouvelle date</column>
+            <column name="title">Mon nouveau titre</column>
+            <column name="description">ma super description</column>
+            <column name="link_title">Un lien demo</column>
+            <column name="link">http://google.com</column>
+            <column name="type">type-2</column>
+            <column name="categories">professionnels</column>
+        </table>
+        <table name="posts">
+            <column name="id">94</column>
+            <column name="date">type 1</column>
+            <column name="title">type 1</column>
+            <column name="description">type 1
+
+&lt;span class=&quot;italic&quot;&gt;
+bonjour les gens
+&lt;/span&gt;
+
+ca va bien les gens;
+   ouais trankill
+
+&lt;strong&gt;gras&lt;/strong&gt;</column>
             <column name="link_title">lien</column>
             <column name="link">http://google.com</column>
-            <column name="type">type3</column>
-            <column name="categories">accessoires</column>
+            <column name="type">type-1</column>
+            <column name="categories">professionnels</column>
         </table>
         <table name="posts">
-            <column name="id">23</column>
-            <column name="title">Wesh ca marche</column>
-            <column name="description">professionnel</column>
-            <column name="link_title">professionnel</column>
+            <column name="id">95</column>
+            <column name="date">TEST CLASS</column>
+            <column name="title">TEST CLASS</column>
+            <column name="description">TEST CLASS</column>
+            <column name="link_title">TEST CLASS</column>
+            <column name="link">TEST CLASS</column>
+            <column name="type">type-2</column>
+            <column name="categories">mobiliers</column>
+        </table>
+        <table name="posts">
+            <column name="id">96</column>
+            <column name="date">MAI 2019</column>
+            <column name="title">Nouvel escalier</column>
+            <column name="description">un texte tou simple
+
+Aurevoir</column>
+            <column name="link_title"></column>
+            <column name="link"></column>
+            <column name="type">type-3</column>
+            <column name="categories">mobiliers</column>
+        </table>
+        <table name="posts">
+            <column name="id">97</column>
+            <column name="date">en ce moment</column>
+            <column name="title">TITRE ACTUALITE</column>
+            <column name="description">TITRE ACTUALITE</column>
+            <column name="link_title">NOTRE MAGAZIN</column>
             <column name="link">http://google.com</column>
-            <column name="type">type2</column>
-            <column name="categories">professionnels</column>
-        </table>
-        <table name="posts">
-            <column name="id">24</column>
-            <column name="title">titre 2</column>
-            <column name="description">titre 2</column>
-            <column name="link_title"></column>
-            <column name="link"></column>
-            <column name="type">type1</column>
+            <column name="type">type-2</column>
             <column name="categories">actualites</column>
         </table>
         <table name="posts">
-            <column name="id">25</column>
-            <column name="title">Test article présentation modification</column>
-            <column name="description">Ma description pr
-ésentation</column>
-            <column name="link_title"></column>
-            <column name="link"></column>
-            <column name="type">type1</column>
-            <column name="categories">actualites</column>
-        </table>
-        <table name="posts">
-            <column name="id">26</column>
-            <column name="title">professionnel</column>
-            <column name="description">Professionnels</column>
-            <column name="link_title"></column>
-            <column name="link"></column>
-            <column name="type">type3</column>
-            <column name="categories">professionnels</column>
-        </table>
-        <table name="posts">
-            <column name="id">27</column>
-            <column name="title">particulier</column>
-            <column name="description">particulier</column>
-            <column name="link_title"></column>
-            <column name="link"></column>
-            <column name="type">type3</column>
+            <column name="id">98</column>
+            <column name="date">Mai 2014</column>
+            <column name="title">Magasin Belfort</column>
+            <column name="description">Petit Bar, ainsi que 
+deux trois tables,
+trankill !!!!! </column>
+            <column name="link_title">Leur magazin</column>
+            <column name="link">http://google.com</column>
+            <column name="type">type-1</column>
             <column name="categories">particuliers</column>
         </table>
         <table name="posts">
-            <column name="id">28</column>
-            <column name="title">test mobilier</column>
-            <column name="description">Nouvelle description</column>
-            <column name="link_title"></column>
-            <column name="link"></column>
-            <column name="type">type1</column>
-            <column name="categories">mobilier</column>
+            <column name="id">99</column>
+            <column name="date">Juin 2012</column>
+            <column name="title">Librairie Maison du livre</column>
+            <column name="description">
+De belle armoire ta vu ?
+
+dernier création pour un particulier.
+
+22 juin 2012</column>
+            <column name="link_title">Visitez leur Site internet</column>
+            <column name="link">http://google.com</column>
+            <column name="type">type-3</column>
+            <column name="categories">particuliers</column>
         </table>
         <table name="posts">
-            <column name="id">29</column>
-            <column name="title">test mobilier</column>
-            <column name="description">test</column>
+            <column name="id">100</column>
+            <column name="date">AUJOURDHUI</column>
+            <column name="title">Mon dernier articles</column>
+            <column name="description">Ceci est mon dernier articles
+
+A bientot</column>
             <column name="link_title"></column>
             <column name="link"></column>
-            <column name="type">type3</column>
-            <column name="categories">mobilier</column>
-        </table>
-        <table name="posts">
-            <column name="id">31</column>
-            <column name="title">test PRO</column>
-            <column name="description">description PRO</column>
-            <column name="link_title"></column>
-            <column name="link"></column>
-            <column name="type">type3</column>
-            <column name="categories">professionnels</column>
-        </table>
-        <table name="posts">
-            <column name="id">32</column>
-            <column name="title">test lien</column>
-            <column name="description">Wesh ma geuele bien trankillement boobs</column>
-            <column name="link_title">Lien de test</column>
-            <column name="link">https://www.youtube.com/</column>
-            <column name="type">type3</column>
+            <column name="type">type-2</column>
             <column name="categories">accessoires</column>
-        </table>
-        <!-- Table users -->
-        <table name="users">
-            <column name="id">1</column>
-            <column name="name">admin</column>
-            <column name="pass">admin</column>
-        </table>
-        <table name="users">
-            <column name="id">2</column>
-            <column name="name">root</column>
-            <column name="pass">root</column>
-        </table>
-        <table name="users">
-            <column name="id">3</column>
-            <column name="name">boobs</column>
-            <column name="pass">boobs</column>
         </table>
     </database>
 </pma_xml_export>
