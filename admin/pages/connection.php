@@ -1,5 +1,5 @@
 <?php 
-    if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=connection" and $_SERVER["REQUEST_URI"] !== "/admin"){
+    if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=connection" and $_SERVER["REQUEST_URI"] !== "/admin/"){
         header("location: ../../index.php");
     } else {
         $_SESSION["errors"] = null;

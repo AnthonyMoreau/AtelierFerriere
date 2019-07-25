@@ -21,20 +21,20 @@
             $_title = $_POST["title"];
             $description = $_POST["description"];
             $link_title = $_POST["link_title"];
-            $link = $_POST["link"];
             $type = $_POST["type"];
+            $link = $_POST["link"];
             $categories = $_POST["categories"];
             
     
             if(!empty($_title) AND
                !empty($description)){
     
-                   if($_SESSION["verif_type"] === 0 AND ($type === "type1" || $categories === "actualites")){
+                   if($_SESSION["verif_type"] === 0 AND ($categories === "actualites" || $categories === "actualites")){
     
                         $_SESSION["verif_type"]++;
                         ?> 
                             <script type="text/javascript">
-                                alert("êtes vous sur pour Type1 ou Actualités");
+                                alert("êtes vous sur pour Actualités");
                             </script>
                         <?php
     
@@ -154,13 +154,12 @@ if(!empty($_FILES) AND isset($req)){require "photos.php";}
                     </p>
                 </div>
                 <div class="create-right">
-                    <span>articles : choisissez un type et une catégorie</span>
+                    <span>articles : choisissez une catégorie</span>
                     <p>
                         <select name="type" id="type">
-                            <option value="type1">type 1</option>
-                            <option value="type2">type 2</option>
-                            <option value="type3">type 3</option>
-                            <option value="type4">type 4</option>
+                            <option value="type-1">type 1</option>
+                            <option value="type-2">type 2</option>
+                            <option value="type-3">type 3</option>
                         </select>
                     </p>
                     <p>
@@ -168,7 +167,7 @@ if(!empty($_FILES) AND isset($req)){require "photos.php";}
                             <option value="actualites">Actualités</option>
                             <option value="professionnels">Professionnels</option>
                             <option value="particuliers">Particuliers</option>
-                            <option value="mobilier">Mobilier</option>
+                            <option value="mobiliers">Mobilier</option>
                             <option value="accessoires">Accessoires</option>
                         </select>
                     </p>
@@ -194,6 +193,7 @@ if(!empty($_FILES) AND isset($req)){require "photos.php";}
                         <button type="submit">Envoyer</button>
                     </p>
                 </form>
+                
             </div>
         </div>
 

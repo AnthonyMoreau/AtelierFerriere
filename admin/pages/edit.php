@@ -69,12 +69,12 @@
 
             <?php foreach($results as $key => $post) : ?>
             <?php 
-
                 if($_POST){
 
                     if($_POST[$post->id] === "modifier"){
                         ?>
                         <form action="" method="post">
+                            <input type="text" name="date" value="<?= $post->date ?>">
                             <input type="text" name="title" value="<?= $post->title ?>">
                             <textarea type="text" name="description"><?= $post->description ?></textarea>
                             <input type="text" name="link_title" value="<?= $post->link_title ?>">
@@ -90,13 +90,14 @@
                     if($_POST[$post->id] === "modification"){
                         
                         $id = $post->id;
+                        $date = $_POST["date"];
                         $_title = $_POST["title"];
                         $description = $_POST["description"];
                         $link_title = $_POST["link_title"];
                         $link = $_POST["link"];
 
-                        $req = $pdo->prepare("UPDATE posts SET title= ?, description= ?, link_title= ?, link= ? WHERE id=$id");
-                        $req->execute([$_title, $description, $link_title, $link]);
+                        $req = $pdo->prepare("UPDATE posts SET date= ?, title= ?, description= ?, link_title= ?, link= ? WHERE id=$id");
+                        $req->execute([$date, $_title, $description, $link_title, $link]);
                         header("location: index.php?admin=edit");
                     }
                     if($_POST[$post->id] === "supprimer"){

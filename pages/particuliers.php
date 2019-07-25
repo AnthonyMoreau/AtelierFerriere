@@ -1,5 +1,4 @@
 <?php
-
 require "template-parts/header.php";
 require "app/pdo/pdo.php";
 
@@ -26,35 +25,45 @@ if($self){
     
         <?php 
             if($photos){
+            ?>
+            <div class="item-article-<?= $post->type ?>">
+            <?php
+                $count = 0;
                 foreach($photos as $key => $value){
                     $pos = strpos($value, $post->id);
                     if($pos !== false AND $pos !== 0){
+                        $count++
                         ?>
-
+                        <div class="image-<?= $count ?>">
                             <img src="<?= $way ?>/<?= $value ?>" alt="<?= $post->title ?>">
-
+                        </div>
                         <?php
                     }
                 }
             }
         ?>
         <!-- fin photo -->
-        <div class="title">
-            <h2><?= $post->title ?></h2>
-        </div>
-        <div class="description">
-            <p><?= $post->description ?></p>
+        <?php if($post->date) : ?>
+            <div class="date">
+                <?= $post->date ?>
+            </div>
+        <?php  endif ?>
+        <div class="content-title">
+            <div class="title">
+                <h2><?= $post->title ?></h2>
+            </div>
+            <div class="description">
+                <pre><p><?= $post->description ?></p></pre>
+            </div>
         </div>
             <?php if($post->link_title !== null AND $post->link !== null) :?>
-
+            <div class="link">
                 <a target="_blank" href="<?= $post->link ?>"><h5><?= $post->link_title ?></h5></a>
-
+            </div>
             <?php endif ?>
-
+        </div>
     <?php endforeach ?>
-
     </div>
-
 </div>
 
 </main>

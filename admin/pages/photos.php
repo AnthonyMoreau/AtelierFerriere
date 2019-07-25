@@ -23,7 +23,7 @@
     
             $__title = $lastId.'_'.title($_POST['title']). '.jpg';
             $imagine = new Imagine\Gd\Imagine();
-            $size  = new Imagine\Image\Box(300, 300);
+            $size  = new Imagine\Image\Box(400, 400);
             $count = 1;
 
             foreach($_FILES as $item => $value){

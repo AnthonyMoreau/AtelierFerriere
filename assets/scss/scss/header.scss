@@ -1,25 +1,30 @@
 .container{
     display: grid;
-    grid-template-columns: 0.5fr 2.5fr;
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 15% 85%;
+    grid-template-rows: auto;
     grid-template-areas: 
-    "nav main"
-    "nav footer";
+    "nav main";
 
     #nav{
         grid-area: nav;
         height: 100vh;
+        position: fixed;
+        width: 15%;
         display: flex;
         align-items: center;
         justify-content: center;
+        border-right: 2px solid rgba(0, 0, 0, 0.226);
+        background-color: rgba(0, 0, 0, 0.090);
     }
 
     .nav{
         text-align: center;
         a{ 
-
+            color: rgba(26, 24, 24, 0.418);
             margin: 40% 0;
             display: block;
+            font-family: $font-Noto; 
+            padding-left: 0.5em;
 
         }
     }

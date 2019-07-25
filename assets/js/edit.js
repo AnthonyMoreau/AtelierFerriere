@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => {
 
-        options = document.querySelector(".choice select").value;
-        
+        let options = document.querySelector(".choice select").value;
+        console.log(options);
         if(options === "actualites"){
             let form = document.querySelectorAll('form');
             for (let i = 0; i < form.length; i++) {
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(options === "mobilier"){
             let form = document.querySelectorAll('form');
             for (let i = 0; i < form.length; i++) {
-                if(form[i].name === 'mobilier'){
+                if(form[i].name === 'mobiliers'){
                     form[i].style.display = 'block'
                 } else {
                     form[i].style.display = 'none';

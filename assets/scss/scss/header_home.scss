@@ -1,18 +1,132 @@
-.header-home{
-    background-color: $medium-light;
-    height: 70vh;
+.header-home {
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    #nav-home{
-        h1{
-            font-size: 2.5em;
-            text-align: center;
-            color: $light;
-        }
-        h2{
-            font-size: 2em;
-            text-align: center;
-        }
+    background: url(http://ferriere-deberry.fr/DSC_0004-re3.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    overflow: hidden;
+}
+
+.beforeTitle {
+    font-size: 6em;
+    margin-left: -60px;
+    position: relative;
+        /*shunter anim */
+    transform: translateX(-100%);
+    animation: revealDown 1.7s ease-in-out forwards;
+    opacity: 0;
+}
+
+/* plus smooth */
+.reveal {
+    height: 8em;
+    overflow: hidden;
+}
+
+.header-home #nav-home h1 {
+    font-size: 8em;
+    text-align: center;
+        /* pour bg titre plein uncomment*/
+        /* background-color: #fff; */
+        /* bg semi-trasnp  comment*/
+    background-color: #ffffffb0;
+    color: #000;
+    mix-blend-mode: screen;
+         /*shunter anim */
+    transform: translateY(100%);
+    animation: reveal 1.9s .5s ease-in-out forwards;
+    opacity: 0;
+}
+
+.header-home #nav-home h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 0.5em;
+    font-weight: 400;
+}
+
+.headerSlogan span:nth-child(1) {
+    color: red;
+    animation: revealSub;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.headerSlogan span:nth-child(2) {
+    animation: revealSub;
+    animation-duration: 2s;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.headerSlogan span:nth-child(3) {
+    animation: revealSub;
+    animation-duration: 2s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes revealSub {
+    100% {
+        opacity: 1;
+    }
+}
+
+.toContent {
+    font-size: 5em;
+    animation: revealSub 2s 5s forwards, moveDown 3s 5s linear infinite;
+    opacity: 0;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+}
+.continu{
+    color: whitesmoke;
+    text-align: center;
+}
+
+.toContent i {
+    color: #ffffffb0;
+}
+
+@keyframes moveDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateX(30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes reveal {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes revealDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }

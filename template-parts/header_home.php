@@ -11,10 +11,16 @@
 <body>
 <header class="header-home">
     <nav id="nav-home" role="nav">
-        <h1>L'atelier Ferriere-Deberry</h1>
-        <h2>Bienvenue sur notre site</h2>
-        <div class="nav-home">
-            <a href="<?= get_link("page")?>professionnels">Allez sur le site</a>
+            <span class="beforeTitle">Atelier</span>
+            <div class="reveal">
+                <h1>Ferriere-Deberry</h1>
+            </div>
+            <div class="sub">
+                <h2 class="headerSlogan"> <span>Ebeniste</span> <span>Design</span> <span>Un autre truc</span></h2>
+            </div>
+        <div class="toContent">
+            <a href="<?= get_link("page")?>professionnels"><i class="fas fa-angle-right"></i></a>
         </div>
+        <div class="continu">Continuer vers le site</div>
     </nav>
 </header>
