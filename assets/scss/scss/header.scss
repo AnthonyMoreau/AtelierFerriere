@@ -15,19 +15,91 @@
         justify-content: center;
         border-right: 2px solid rgba(0, 0, 0, 0.226);
         background-color: rgba(0, 0, 0, 0.090);
-    }
 
-    .nav{
-        text-align: center;
-        a{ 
-            color: rgba(26, 24, 24, 0.418);
-            margin: 40% 0;
-            display: block;
-            font-family: $font-Noto; 
-            padding-left: 0.5em;
-
+        .nav{
+            text-align: center;
+            a{ 
+                color: rgba(26, 24, 24, 0.418);
+                margin: 40% 0;
+                display: block;
+                font-family: $font-Noto; 
+                padding-left: 0.5em;
+    
+            }
         }
-    }
+        .modal{
 
+            width: 100%;
+            align-self: center;
+            display: none;
+
+            button{
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.808); /* dark */
+                border: none;
+                color: white;
+                padding: 0.2em 0.6em;
+                border-radius: 0.1em;
+                text-align: center;
+                text-decoration: none;
+                display: block;
+                margin: auto;
+                font-size: 1em;
+                font-family: $font-Noto;
+                i{
+                    padding: 0 0.1em;
+                    margin-top: -3px;
+                }
+            }
+
+            #modal{
+                height: 0;
+                position: relative;
+                display: none;
+    
+                .my-container{
+                    background-color: rgb(47, 47, 47);
+                    width: 90%;
+                    margin: auto;
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    top: 12vh;
+                    
+                    a{
+                        display: block;
+                        width: auto;
+                        text-align: center;
+                        padding: 0.5em;
+                        color: rgb(218, 218, 218) !important;
+                    }
+                }
+            }
+        }
+    
+    }
 }
 
+@media only screen and (max-width: 576px){
+    .container{
+        grid-template-columns: 100%;
+        grid-template-rows: 10% auto;
+        grid-template-areas: 
+        "nav"
+        "main";
+
+        #nav{
+            height: 10vh;
+            width: 100%;
+            border-right: none;
+            background-color: rgba(0, 0, 0, 0.678);
+            .nav {
+                display: none;
+            }
+            .modal{
+                display: block;
+            }
+        }
+
+    }   
+}

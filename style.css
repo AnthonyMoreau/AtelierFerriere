@@ -188,17 +188,81 @@ a {
   border-right: 2px solid rgba(0, 0, 0, 0.226);
   background-color: rgba(0, 0, 0, 0.09);
 }
-.container .nav {
+.container #nav .nav {
   text-align: center;
 }
-.container .nav a {
+.container #nav .nav a {
   color: rgba(26, 24, 24, 0.418);
   margin: 40% 0;
   display: block;
   font-family: "Noto Sans KR", sans-serif;
   padding-left: 0.5em;
 }
+.container #nav .modal {
+  width: 100%;
+  align-self: center;
+  display: none;
+}
+.container #nav .modal button {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.808);
+  /* dark */
+  border: none;
+  color: white;
+  padding: 0.2em 0.6em;
+  border-radius: 0.1em;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  font-size: 1em;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.container #nav .modal button i {
+  padding: 0 0.1em;
+  margin-top: -3px;
+}
+.container #nav .modal #modal {
+  height: 0;
+  position: relative;
+  display: none;
+}
+.container #nav .modal #modal .my-container {
+  background-color: #2f2f2f;
+  width: 90%;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 12vh;
+}
+.container #nav .modal #modal .my-container a {
+  display: block;
+  width: auto;
+  text-align: center;
+  padding: 0.5em;
+  color: #dadada !important;
+}
 
+@media only screen and (max-width: 576px) {
+  .container {
+    grid-template-columns: 100%;
+    grid-template-rows: 10% auto;
+    grid-template-areas: "nav" "main";
+  }
+  .container #nav {
+    height: 10vh;
+    width: 100%;
+    border-right: none;
+    background-color: rgba(0, 0, 0, 0.678);
+  }
+  .container #nav .nav {
+    display: none;
+  }
+  .container #nav .modal {
+    display: block;
+  }
+}
 .main {
   grid-area: main;
   min-height: 92vh;
@@ -417,6 +481,10 @@ a {
   padding: 1em 0;
 }
 
+.footer {
+  display: none;
+}
+
 .container-admin-connection {
   height: 100vh;
   display: flex;
@@ -521,6 +589,80 @@ a {
 .container-admin-create .admin-content-create .create button:hover {
   background-color: #2f5a30;
   /* Green */
+}
+
+.container-admin-edit {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-admin-edit .nav a {
+  margin: 2em;
+  font-size: 1.2em;
+  color: #346797;
+}
+.container-admin-edit .choice {
+  margin: 1.2em 0;
+  text-align: center;
+}
+.container-admin-edit .choice select {
+  background-color: rgba(0, 0, 0, 0.239);
+  /* dark */
+  border: none;
+  color: white;
+  padding: 0.65em 1.2em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.3em;
+}
+.container-admin-edit .edit-posts {
+  text-align: center;
+}
+.container-admin-edit .edit-posts p {
+  margin: 1em 0;
+}
+.container-admin-edit .edit-posts .edit-info {
+  font-size: 1.3em;
+  text-decoration: underline;
+}
+.container-admin-edit input[type=submit] {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 0.65em 1.2em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+}
+.container-admin-edit input[value=supprimer] {
+  background-color: #ca3131;
+  /* red */
+}
+.container-admin-edit .form-container {
+  text-align: start;
+}
+.container-admin-edit .form-container form label:nth-child(2) {
+  border-bottom: 2px solid black;
+  font-size: 1.2em;
+}
+.container-admin-edit .form-container input[type=submit] {
+  margin: 0.4em 0;
+}
+.container-admin-edit .suppression form span {
+  background-color: #b62727;
+  padding: 0.5em 1em;
+  border-radius: 3px;
+  color: whitesmoke;
+}
+.container-admin-edit .suppression form p {
+  margin: 1em 0;
+}
+.container-admin-edit .suppression input[value=suppression] {
+  background-color: #b62727;
 }
 
 .red {

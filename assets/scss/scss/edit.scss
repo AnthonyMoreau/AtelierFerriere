@@ -1,0 +1,79 @@
+.container-admin-edit{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .nav{
+        a{
+            margin: 2em;
+            font-size: 1.2em;
+            color: #346797;
+        }
+    }
+    .choice{
+        margin: 1.2em 0;
+        text-align: center;
+        select{
+            background-color: rgba(0, 0, 0, 0.239); /* dark */
+            border: none;
+            color: white;
+            padding: 0.65em 1.2em;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.3em;
+        }
+    }
+    .edit-posts{
+        text-align: center;
+
+        p{
+            margin: 1em 0;
+        }
+        .edit-info{
+            font-size: 1.3em;
+            text-decoration: underline;
+        }
+    }
+    input[type=submit]{
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 0.65em 1.2em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 8px;
+    }
+    input[value=supprimer]{
+        background-color: rgb(202, 49, 49); /* red */
+    }
+    .form-container{
+        text-align: start;
+
+        form label:nth-child(2){
+
+            border-bottom: 2px solid black;
+            font-size: 1.2em;
+
+        }
+        input[type=submit]{
+            margin: 0.4em 0;
+        }
+    }
+    .suppression form span{
+        background-color: rgb(182, 39, 39);
+        padding: 0.5em 1em;
+        border-radius: 3px;
+        color: whitesmoke;
+    }
+    .suppression form p{
+        margin:  1em 0;
+    }
+    .suppression{
+        input[value=suppression]{
+            background-color: rgb(182, 39, 39);
+        }
+    }
+
+}
