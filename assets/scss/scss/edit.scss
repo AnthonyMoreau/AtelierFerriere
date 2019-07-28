@@ -3,6 +3,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    .user-info{
+        margin-top: 1em;
+        font-size: 1.2em;
+
+        .title{
+            text-decoration: underline;
+        }
+    }
+    .id{
+        color: #4CAF50;
+    }
     .nav{
         a{
             margin: 2em;
@@ -76,4 +87,18 @@
         }
     }
 
+}
+
+@media only screen and (max-height: 720px){
+    .container-admin-edit{
+        .edit-posts{
+            p{
+                margin: 0.3em 0 !important; 
+            }
+        }
+        .suppression form span{
+            margin: 1em 0;
+            display: block;
+        }
+    }
 }

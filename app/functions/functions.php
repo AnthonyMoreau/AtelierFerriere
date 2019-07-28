@@ -92,3 +92,19 @@ function verif_link(){
     $link = "ok";
     return $link;
 }
+
+function get_element($tab, $category){
+    $x = [$category];
+    foreach($tab as $key){
+        if($key !== $category){
+            $x []= $key;
+        }
+    }
+    return $x;
+}
+function set_element($tab){
+    foreach($tab as $key){?>
+        <option value="<?= $key ?>"><?= $key ?></option>
+        <?php
+    }
+}

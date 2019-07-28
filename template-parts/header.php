@@ -42,20 +42,22 @@
         <script type="text/javascript">
 
             let size = window.innerWidth;
-            
-            if(size < 580) {
+            let height = window.innerHeight;
+            console.log(height)
+            if(size < 768) {
 
                 console.log(size);
                 
                 document.addEventListener("DOMContentLoaded", function(){ 
-
+                    
+                    
                     document.addEventListener("scroll", function(e) {
                         let nav = document.querySelector("#nav")
                         nav.style.opacity = 0;
                         nav.style.transition = "opacity .3s linear";
                         setTimeout(function(){
                             nav.style.opacity = 1;
-                            nav.style.transition = "opacity .3s linear";},500)
+                            nav.style.transition = "opacity 1s linear";},1350)
                     })
                 })
             } else {

@@ -19,7 +19,7 @@
     
         if($length > 0){
 
-            $id = $_POST['categories'];
+            $category = $_POST['categories'];
     
             $__title = $lastId.'_'.title($_POST['title']). '.jpg';
             $imagine = new Imagine\Gd\Imagine();
@@ -29,7 +29,7 @@
             foreach($_FILES as $item => $value){
                 if (!empty($value["tmp_name"])){
                     $photo = $value["tmp_name"];
-                    $imagine->open($photo)->thumbnail($size, 'inset')->save('../photos'.'/'. $id .'/' . $count . '_' . $__title);
+                    $imagine->open($photo)->thumbnail($size, 'inset')->save('../photos'.'/'. $category .'/' . $count . '_' . $__title);
                     $count++;
                 }
             }
