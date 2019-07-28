@@ -1,6 +1,8 @@
 .active{
     color: rgb(16, 17, 16) !important;
     border-left: 3px solid black;
+    transform: translateX(-12px);
+    opacity: 0.2;
 }
 .errors{
     color: whitesmoke;

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="swup.css">
     <title><?= $title ?></title>
 </head>
 <body>
@@ -19,6 +20,10 @@
                 <a href="<?= get_link("page")?>accessoires" class="<?= active($page, "accessoires") ?>">Accéssoires</a>
                 <a href="<?= get_link("page")?>atelier" class="<?= active($page, "atelier") ?>">L'Atelier</a>
                 <a href="<?= get_link("page")?>contact" class="<?= active($page, "contact") ?>">Contact</a>
+                <div class="network">
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
             <div class="modal">
                 <button onclick="document.getElementById('modal').style.display='block'" class="my-button"><?= $page ?><span><i class="fas fa-sort-down"></i></span></button>
@@ -33,6 +38,10 @@
                                 <a href="<?= get_link("page")?>accessoires" class="<?= active($page, "accessoires") ?>">Accéssoires</a>
                                 <a href="<?= get_link("page")?>atelier" class="<?= active($page, "atelier") ?>">L'Atelier</a>
                                 <a href="<?= get_link("page")?>contact" class="<?= active($page, "contact") ?>">Contact</a>
+                                <div class="network-small-screen">
+                                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -57,7 +66,7 @@
                         nav.style.transition = "opacity .3s linear";
                         setTimeout(function(){
                             nav.style.opacity = 1;
-                            nav.style.transition = "opacity 1s linear";},1350)
+                            nav.style.transition = "opacity 1s linear";}, 800)
                     })
                 })
             } else {

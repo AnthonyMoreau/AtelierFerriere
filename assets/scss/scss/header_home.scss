@@ -1,9 +1,11 @@
 .header-home {
-    height: 60vh;
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background: url(http://ferriere-deberry.fr/DSC_0004-re3.jpg) center no-repeat;
+    background-color: rgba(0, 0, 0, 0.452);
+    background-blend-mode: overlay;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -19,12 +21,15 @@
     transform: translateX(-100%);
     animation: revealDown 1.7s ease-in-out forwards;
     opacity: 0;
+    color: rgb(143, 136, 136);
+    font-family: $font-Inconsolata;
 }
 
 /* plus smooth */
 .reveal {
     height: 8em;
     overflow: hidden;
+    font-family: $font-Narrow;
 }
 
 .header-home #nav-home h1 {
@@ -47,23 +52,27 @@
     text-align: center;
     margin-top: 0.5em;
     font-weight: 400;
+    
 }
 
 .headerSlogan span:nth-child(1) {
-    color: red;
+    color: rgb(167, 53, 53);
     animation: revealSub;
     animation-duration: 2s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
     opacity: 0;
+    font-family: $font-Open;
 }
 
 .headerSlogan span:nth-child(2) {
+    color: rgb(88, 100, 116);
     animation: revealSub;
     animation-duration: 2s;
     animation-delay: 2.5s;
     animation-fill-mode: forwards;
     opacity: 0;
+    font-family: $font-Playfair;
 }
 
 .headerSlogan span:nth-child(3) {
@@ -72,6 +81,8 @@
     animation-delay: 3s;
     animation-fill-mode: forwards;
     opacity: 0;
+    font-family: $font-Roboto;
+    color: rgb(194, 194, 194);
 }
 
 @keyframes revealSub {
@@ -84,7 +95,7 @@
     font-size: 5em;
     animation: revealSub 2s 5s forwards, moveDown 3s 5s linear infinite;
     opacity: 0;
-    margin-top: 1em;
+    margin-top: 0.5em;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -131,4 +142,92 @@
         transform: translateY(0);
         opacity: 1;
     }
+}
+@media only screen and (max-width: 704px){
+
+    .beforeTitle {
+        font-size: 2em;
+        margin: 2em 0 1em 0;
+        display: flex;
+        justify-content: center;
+
+    }
+    .reveal {
+        height: 3.5em;
+        overflow: hidden;
+    }
+    .header-home #nav-home h1 {
+        font-size: 2.5em;
+        text-align: center;
+            /* pour bg titre plein uncomment*/
+            /* background-color: #fff; */
+            /* bg semi-trasnp  comment*/
+        background-color: #ffffffb0;
+        color: #000;
+        mix-blend-mode: screen;
+             /*shunter anim */
+        transform: translateY(100%);
+        animation: reveal 1.9s .5s ease-in-out forwards;
+        opacity: 0;
+    }
+
+}
+@media only screen and (min-width: 704px) and (max-width: 1200px){
+
+    .beforeTitle {
+        font-size: 4em;
+        margin: 1em 0 1em 0;
+        display: flex;
+        justify-content: center;
+
+    }
+    .reveal {
+        height: 6em;
+        overflow: hidden;
+    }
+    .header-home #nav-home h1 {
+        font-size: 5em;
+        text-align: center;
+            /* pour bg titre plein uncomment*/
+            /* background-color: #fff; */
+            /* bg semi-trasnp  comment*/
+        background-color: #ffffffb0;
+        color: #000;
+        mix-blend-mode: screen;
+             /*shunter anim */
+        transform: translateY(100%);
+        animation: reveal 1.9s .5s ease-in-out forwards;
+        opacity: 0;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-height: 720px){
+    
+    .beforeTitle {
+        font-size: 3em;
+        margin: 2em 0 1em 0;
+        display: flex;
+        justify-content: center;
+
+    }
+    .reveal {
+        height: 5em;
+        overflow: hidden;
+    }
+    .header-home #nav-home h1 {
+        font-size: 4em;
+        text-align: center;
+            /* pour bg titre plein uncomment*/
+            /* background-color: #fff; */
+            /* bg semi-trasnp  comment*/
+        background-color: #ffffffb0;
+        color: #000;
+        mix-blend-mode: screen;
+             /*shunter anim */
+        transform: translateY(100%);
+        animation: reveal 1.9s .5s ease-in-out forwards;
+        opacity: 0;
+    }
+
 }

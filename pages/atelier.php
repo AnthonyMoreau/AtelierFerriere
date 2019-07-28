@@ -4,7 +4,7 @@ require "template-parts/header.php";
 ?>
 <main class="main">
 
-<div class="site-content">
+<div id="posts" class="site-content is-animating-right">
     <p>
         Je suis le contenu Atelier !!
     </p>

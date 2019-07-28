@@ -172,11 +172,11 @@
                                 $photo_change = $_POST["photo_change"];
                                 $_SESSION["id-modif"] = $post->title;
                                 $title_photo;
+
                                 foreach($tab_photos as $value){
 
                                     $title_photo = explode("/" , $value);
                                     if($title_photo[2] !== $category){
-                                        
                                         $photo = $imagine->open($value)->save("../photos/$category/$title_photo[3]");
                                         unlink($value);
                                     }
@@ -184,6 +184,7 @@
                                 $req = $pdo->prepare("UPDATE posts SET date= ?, title= ?, description= ?, link_title= ?, link= ?, categories= ?, type= ? WHERE id=$id");
                                 $req->execute([$date, $_title, $description, $link_title, $link, $category, $type]);
                                 if($photo_change === "non"){
+
                                     header("location: index.php?admin=edit");
 
                                 } else {
@@ -237,15 +238,18 @@
 
                                     foreach($_FILES as $item => $value){
                                         $count++;
-                                        if (!empty($value["tmp_name"])){
+                                        if (!empty($_FILES[$item]["tmp_name"])){
+                                            //probleme dans ce block
                                             $link = isset($_POST["photo{$count}"]) ? $_POST["photo{$count}"] : null ;
-                                            $photo = $value["tmp_name"];
+                                            dd($link);
+                                            $photo = $_FILES[$item]["tmp_name"];
                                             if($link !== null) {
                                                 $imagine->open($photo)->thumbnail($size, 'inset')->save($link);
                                             } else {
+
                                                 $test_photo = '../photos'.'/'. $category[2] .'/' . $count . '_' . $title[1].'_'.$title[2];
                                                 $test_image = (file_exists($test_photo) === true) ? true : null;
-                                                if($test_image !== null){
+                                                if($test_image){
                                                     
                                                     $photos = scandir("../photos/$category[2]");
                                                     $count_photo = 0;

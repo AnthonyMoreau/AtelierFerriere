@@ -13,8 +13,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-right: 2px solid rgba(0, 0, 0, 0.226);
-        background-color: rgba(0, 0, 0, 0.090);
+        // border-right: 2px solid rgba(0, 0, 0, 0.226);
+        // background-color: rgba(0, 0, 0, 0.090);
 
         .nav{
             text-align: center;
@@ -24,7 +24,20 @@
                 display: block;
                 font-family: $font-Noto; 
                 padding-left: 0.5em;
+                transition: .3s;
+
+                &:hover{
+                    color: rgb(16, 17, 16);
+                }
     
+            }
+            .network a{
+                font-size: 1.5em;
+                transition: .3s;
+                &:hover{
+
+                    color: rgb(39, 39, 39) !important;
+                }
             }
         }
         .modal{
@@ -93,6 +106,7 @@
             width: 100%;
             border-right: none;
             background-color: rgba(0, 0, 0, 0.678);
+            z-index: 1020;
             .nav {
                 display: none;
             }

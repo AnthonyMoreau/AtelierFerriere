@@ -1,8 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-    setInterval(() => {
-
-        let options = document.querySelector(".choice select").value;
-        console.log(options);
+    let p = setInterval(() => {
+        let o = document.querySelector(".choice select");
+        let op;
+        if(o !== null){
+            op = o.value
+        }
+        let options;
+        if(op !== null){
+            options = op;
+        } else {
+            clearInterval(p);
+        }
         if(options === "actualites"){
             let form = document.querySelectorAll('form');
             for (let i = 0; i < form.length; i++) {
@@ -11,9 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     form[i].style.display = 'none';
                 }
-                
             }
-            
         }
         if(options === "accessoires"){
             let form = document.querySelectorAll('form');
@@ -25,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 
             }
-            
         }
         if(options === "professionnels"){
             let form = document.querySelectorAll('form');
@@ -37,14 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 
             }
-            
         }
         if(options === "tous"){
             let form = document.querySelectorAll('form');
             for (let i = 0; i < form.length; i++) {
                 form[i].style.display = 'block'
             }
-            
         }
         if(options === "particuliers"){
             let form = document.querySelectorAll('form');
@@ -54,9 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     form[i].style.display = 'none';
                 }
-                
             }
-            
         }
         if(options === "mobilier"){
             let form = document.querySelectorAll('form');
@@ -68,9 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 
             }
-            
         }
-
     }, 1000)
-
 })

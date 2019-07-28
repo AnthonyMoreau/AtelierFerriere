@@ -17,38 +17,30 @@
 
         if(lengthFiles($_FILES) > 0){
 
-            $date = $_POST["date"];
-            $_title = $_POST["title"];
-            $description = $_POST["description"];
-            $link_title = $_POST["link_title"];
-            $type = $_POST["type"];
-            $link = $_POST["link"];
-            $categories = $_POST["categories"];
+            $date = isset($_POST["date"]) ? $_POST["date"] : null;
+            $_title = isset($_POST["title"]) ? $_POST["title"] : null;
+            $description = isset($_POST["description"]) ? $_POST["description"] : null;
+            $link_title = isset($_POST["link_title"]) ? $_POST["link_title"] : null;
+            $type = isset($_POST["type"]) ? $_POST["type"] : null;
+            $link = isset($_POST["link"]) ? $_POST["link"] : null;
+            $category = isset($_POST["categories"]) ? $_POST["categories"] : null;
             
     
             if(!empty($_title) AND
                !empty($description)){
-    
-                   if($_SESSION["verif_type"] === 0 AND ($categories === "actualites" || $categories === "actualites")){
-    
+                   if($_SESSION["verif_type"] === 0 AND ($category === "actualites")){
                         $_SESSION["verif_type"]++;
                         ?> 
                             <script type="text/javascript">
                                 alert("êtes vous sur pour Actualités");
                             </script>
                         <?php
-    
                     } else {
-    
                         $pattern = "/[a-zA-Zéèàçêâîôëäïö0-9 ]+/";
                         preg_match($pattern, $_title, $matchs);
-        
                         if($matchs[0] === $_title){
-        
                             require "../app/pdo/pdo.php";
-                    
                             $req = $pdo->prepare("INSERT INTO posts SET 
-    
                                 date= ?,
                                 title= ? ,
                                 description = ? ,
@@ -56,28 +48,22 @@
                                 link = ? ,
                                 type = ? ,
                                 categories = ?
-        
                             ");
                             $req->execute([
-                                
                                 $date,
                                 $_title, 
                                 $description, 
                                 $link_title, 
                                 $link, 
                                 $type, 
-                                $categories
-        
+                                $category
                             ]);
                             ?>
                                 <script type="text/javascript">
                                     alert("Votre article à bien été posté");
                                 </script>
-
                             <?php
-
                             $_SESSION["verif_type"] = 0;
-
                             $_title = "nouvel article" ;
                             $description = "Nouvelle description" ;
                             $date = "";
@@ -85,7 +71,6 @@
                             $link = "";
                         }
                     }
-
             } else {
                 ?> 
                     <script type="text/javascript">
@@ -93,14 +78,11 @@
                     </script>
                 <?php
             }
-
         } else {
             ?>
-
                 <script type="text/javascript">
                     alert("il faut au moins une photo !");
                 </script>
-
             <?php
         }
     }
@@ -111,7 +93,7 @@ if(!empty($_FILES) AND isset($req)){require "photos.php";}
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,7 +108,7 @@ if(!empty($_FILES) AND isset($req)){require "photos.php";}
         <div class="admin-content-create">
             <nav id="nav" role="nav">
                 <div class="nav">
-                    <a href="../../index.php">Retour sur le site</a>
+                    <a href="../../index.php">Retour sur le site (déconnexion) </a>
                     <a href="<?= get_link("admin")?>edit">Edit</a>
                 </div>
             </nav>
@@ -196,6 +178,4 @@ if(!empty($_FILES) AND isset($req)){require "photos.php";}
                 
             </div>
         </div>
-
-
 <?php require "../template-parts/footer-admin.php" ?>
