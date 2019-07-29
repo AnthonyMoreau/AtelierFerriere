@@ -191,12 +191,13 @@
                                     $count = 0;
                                     $count_photos = 0;
                                     ?> 
+                                        <p class="red">Attention il faut au moins une photo avant d'enregister</p>
                                         <form action="" method="POST" enctype="multipart/form-data">
                                             <?php foreach($_POST as $key => $value) : ?>
                                                 <?php $count ++ ?>
                                                 <?php $title_photo = explode("/" , $value); ?>
                                                 <?php if($key === "photo{$count}") : ?>
-                                                <input type="checkbox" name="supprime-photo" id="supprime-photo">Supprimer la photo
+                                                <input type="checkbox" name="supprime-photo<?= $count_photos + 1 ?>" id="supprime-photo">Supprimer la photo
                                                 <?php $count_photos++; ?>
                                                 <?php $link_photo =  "../photos/$category/$title_photo[3]" ?>
                                                     <img style="max-width: 20%" src="<?= $link_photo ?>" alt=""> 
@@ -214,7 +215,6 @@
                                                         ?>
                                                         <p>
                                                             <input type="file" name="photo<?= $i ?>"  id="photo<?= $i ?>" multiple>
-                                                            <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
                                                         </p>
                                                         <?php
                                                     } 
@@ -231,41 +231,62 @@
 
                                 if($_FILES){
                                     $count = 0;
-
                                     $category = explode("/", $_POST["photo1"]);
                                     $title = explode("_", $category[3]);
                                     $size  = new Imagine\Image\Box(400, 400);
-
+                                    
                                     foreach($_FILES as $item => $value){
-                                        $count++;
-                                        if (!empty($_FILES[$item]["tmp_name"])){
-                                            //probleme dans ce block
-                                            $link = isset($_POST["photo{$count}"]) ? $_POST["photo{$count}"] : null ;
-                                            dd($link);
-                                            $photo = $_FILES[$item]["tmp_name"];
-                                            if($link !== null) {
-                                                $imagine->open($photo)->thumbnail($size, 'inset')->save($link);
-                                            } else {
 
-                                                $test_photo = '../photos'.'/'. $category[2] .'/' . $count . '_' . $title[1].'_'.$title[2];
-                                                $test_image = (file_exists($test_photo) === true) ? true : null;
+                                        $count++;
+
+                                        //remplacement de photo
+                                        if (!empty($_FILES[$item]["tmp_name"])){
+
+                                            $link = isset($_POST["photo{$count}"]) ? $_POST["photo{$count}"] : false ;
+
+                                            $photo = $_FILES[$item]["tmp_name"];
+
+                                            if($link) {
+                                                
+                                                $imagine->open($photo)->thumbnail($size, 'inset')->save($link);
+
+                                            } else {
+                                                // réenregistrement de photo
+                                                
+                                                $test_photo = '../photos/'. $category[2] .'/' . $count . '_' . $title[1].'_'.$title[2];
+                                                
+                                                
+                                                $test_image = (file_exists($test_photo)) ? true : false;
+
                                                 if($test_image){
                                                     
                                                     $photos = scandir("../photos/$category[2]");
                                                     $count_photo = 0;
+                                                    
                                                     foreach($photos as $key => $value){
-                                                        $title = explode("_", $value);
+                                                        
                                                         if($value !== "." AND $value !== ".."){
-                                                            $count_photo++;
-                                                            $link_value = "../photos/$category[2]/$value";
-                                                            $imagine->open($link_value)->save('../photos'.'/'. $category[2] .'/' . $count_photo . '_' . $title[1].'_'.$title[2]) ;
+                                                            
+                                                            $pos = (strpos($value, $title[1], 2)) ? true : false;
+
+                                                            
+                                                            if($pos){
+                                                                
+                                                                $count_photo++;
+                                                                
+                                                                $link_value = "../photos/$category[2]/$value";
+
+                                                                $rec = $imagine->open($link_value)->save('../photos/'. $category[2] .'/' . $count_photo . '_' . $title[1].'_'.$title[2]);
+                                                            }
                                                         }
                                                     }
-
-                                                } else {
-                                                    $imagine->open($photo)->thumbnail($size, 'inset')->save('../photos'.'/'. $category[2] .'/' . $count . '_' . $title[1].'_'.$title[2]);
-                                                }
+                                                    //enregistrement de la nouvelle photo
+                                                    $rec = $imagine->open($photo)->thumbnail($size, 'inset')->save('../photos/'. $category[2] .'/' . ($count_photo + 1) . '_' . $title[1].'_'.$title[2]);
                                                 
+                                                } else {
+
+                                                    $imagine->open($photo)->thumbnail($size, 'inset')->save('../photos/'. $category[2] .'/' . $count . '_' . $title[1].'_'.$title[2]);
+                                                }
                                             }
                                         }
                                     }
@@ -278,12 +299,10 @@
                                     
                                 } 
                                 if($_POST){
-                                    $count = 0;
-                                    foreach($_POST as $key => $value){
-                                        $count++;
-                                        if($key === "supprime-photo"){
-                                            $photo = $_POST["photo{$count}"];
-                                            unlink($photo);
+                                    //supression des photos
+                                    for($i = 1; $i < 5; $i++){
+                                        if(isset($_POST["supprime-photo{$i}"])){
+                                            unlink($_POST["photo{$i}"]);
                                         }
                                     }
                                     $_SESSION["id-modif"] = $post->title;
