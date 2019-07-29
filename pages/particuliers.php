@@ -24,7 +24,7 @@ if($self){
                 <?php 
                     if($photos){
                     ?>
-                    <div class="item-article-<?= $post->type ?>">
+                    <article class="item-article-<?= $post->type ?>">
                     <?php
                         $count = 0;
                         foreach($photos as $key => $value){
@@ -59,7 +59,7 @@ if($self){
                         <a target="_blank" href="<?= $post->link ?>"><h5><?= $post->link_title ?></h5></a>
                     </div>
                     <?php endif ?>
-                </div>
+                </article>
             <?php endforeach ?>
         </div>
     </div>

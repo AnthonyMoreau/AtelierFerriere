@@ -1,24 +1,17 @@
 <?php
     if($_SERVER["REQUEST_URI"] !== "/admin/index.php?admin=edit"){
-
         header("location: ../../index.php");
-
     } else {
-
         if ($_SESSION["auth"] !== true ){
-
             $_SESSION["auth"] = "noPermission";
             header("location: index.php?admin=connection");
         }
     }
-
     require "../app/pdo/pdo.php";
-
     $req = $pdo->query("SELECT * FROM posts");
     $results = array_reverse($req->fetchAll());
     $imagine = $imagine = new Imagine\Gd\Imagine();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,9 +41,7 @@
                     <?php endif ?>
                 </div>
                 <?php 
-                
                     $_SESSION["id"] = "";
-
                     $_SESSION["id-modif"] = "";
                 ?>
                 <div class="choice">
@@ -66,15 +57,12 @@
                     </p>
                 </div>
                 <?php endif ?>
-            
-            
                 <div class="edit-posts">
-
                     <?php foreach($results as $key => $post) : ?>
                     <?php 
                         if($_POST){
-                            
-                            if($_POST[$post->id] === "modifier"){ 
+                            $post_entry = (isset($_POST[$post->id])) ? $_POST[$post->id] : null;
+                            if($post_entry === "modifier"){ 
 
                                 $photos = scandir("../photos/$post->categories");
                                 ?> 
@@ -151,7 +139,7 @@
                                 <?php
 
                             }
-                            if($_POST[$post->id] === "Envoyer la modification"){
+                            if($post_entry === "Envoyer la modification"){
 
                                 $count = 0;
                                 $tab_photos = [];
@@ -227,7 +215,7 @@
                                 }
                                 
                             }
-                            if($_POST[$post->id] === "Envoyer les nouvelles photos"){
+                            if($post_entry === "Envoyer les nouvelles photos"){
 
                                 if($_FILES){
                                     $count = 0;
@@ -309,7 +297,7 @@
                                     header("location: index.php?admin=edit");
                                 }
                             }
-                            if($_POST[$post->id] === "supprimer"){
+                            if($post_entry === "supprimer"){
 
                                 ?>
                                     <div class="suppression">
@@ -335,7 +323,7 @@
                                 <?php
 
                             }
-                            if($_POST[$post->id] === "suppression"){
+                            if($post_entry === "suppression"){
 
                                 $id = $post->id;
                                 $category = $post->categories;
@@ -359,7 +347,6 @@
                                 }
                                 
                             }
-
                         } else {
 
                             ?>
@@ -377,10 +364,8 @@
                             <?php
                         }
                     ?>
-                    
                     <?php endforeach ?>
                     <script src="../assets/js/edit.js"></script>
                 </div>
         </div>
-
 <?php require "../template-parts/footer-admin.php" ?>

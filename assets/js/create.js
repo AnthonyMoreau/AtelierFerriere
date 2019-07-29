@@ -1,14 +1,11 @@
-function cl(variable){
-    return console.log(variable);
-}
-
 document.addEventListener('DOMContentLoaded', function(){
    
-    let success = document.querySelector(".success-create");
-    cl(success);
+    var success = document.querySelector(".success-create");
 
-    setTimeout(() => {
+    setTimeout(function(){
         success.classList.add("opacity-none"); 
-    }, 3000);
+    }, 2000);
  
-})
+});
+
+
