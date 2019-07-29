@@ -27,7 +27,7 @@
         <div class="edit-container">    
             <nav id="nav" role="nav">
                 <div class="nav">
-                    <a href="../../index.php">Retour sur le site</a>
+                    <a href="../../index.php">Retour sur le site (déconnexion)</a>
                     <a href="<?= get_link("admin")?>create">Creation</a>
                 </div>
             </nav>
@@ -61,9 +61,10 @@
                     <?php foreach($results as $key => $post) : ?>
                     <?php 
                         if($_POST){
-                            $post_entry = (isset($_POST[$post->id])) ? $_POST[$post->id] : null;
-                            if($post_entry === "modifier"){ 
 
+                            $post_entry = (isset($_POST[$post->id])) ? $_POST[$post->id] : null;
+
+                            if($post_entry === "modifier"){ 
                                 $photos = scandir("../photos/$post->categories");
                                 ?> 
                                 <form  action="" method="POST">
@@ -227,7 +228,7 @@
 
                                         $count++;
 
-                                        //remplacement de photo
+                                        //replace
                                         if (!empty($_FILES[$item]["tmp_name"])){
 
                                             $link = isset($_POST["photo{$count}"]) ? $_POST["photo{$count}"] : false ;
@@ -239,8 +240,7 @@
                                                 $imagine->open($photo)->thumbnail($size, 'inset')->save($link);
 
                                             } else {
-                                                // réenregistrement de photo
-                                                
+                                                // rec
                                                 $test_photo = '../photos/'. $category[2] .'/' . $count . '_' . $title[1].'_'.$title[2];
                                                 
                                                 
@@ -268,11 +268,11 @@
                                                             }
                                                         }
                                                     }
-                                                    //enregistrement de la nouvelle photo
+                                                    //rec new
                                                     $rec = $imagine->open($photo)->thumbnail($size, 'inset')->save('../photos/'. $category[2] .'/' . ($count_photo + 1) . '_' . $title[1].'_'.$title[2]);
                                                 
                                                 } else {
-
+                                                    // normal rec
                                                     $imagine->open($photo)->thumbnail($size, 'inset')->save('../photos/'. $category[2] .'/' . $count . '_' . $title[1].'_'.$title[2]);
                                                 }
                                             }
@@ -287,7 +287,7 @@
                                     
                                 } 
                                 if($_POST){
-                                    //supression des photos
+                                    //supr
                                     for($i = 1; $i < 5; $i++){
                                         if(isset($_POST["supprime-photo{$i}"])){
                                             unlink($_POST["photo{$i}"]);
@@ -298,7 +298,6 @@
                                 }
                             }
                             if($post_entry === "supprimer"){
-
                                 ?>
                                     <div class="suppression">
                                         <div class="edit-info">

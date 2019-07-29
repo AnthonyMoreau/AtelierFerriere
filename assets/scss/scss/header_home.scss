@@ -107,7 +107,13 @@
 }
 
 .toContent i {
+    transition: .3s;
+    font-size: 1em;
     color: #ffffffb0;
+    &:hover{
+        font-size: 1.2em;
+        color: rgb(55, 153, 71);
+    }
 }
 
 @keyframes moveDown {

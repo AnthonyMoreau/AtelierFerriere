@@ -5,16 +5,7 @@ session_start();
 require "../app/functions/functions.php";
 require '../vendor/autoload.php';
 
-
-if(isset($_GET["admin"])){
-
-    $page = $_GET["admin"];
-
-} else {
-
-    $page = "connection";
-}
-
+$page = (isset($_GET["admin"])) ? $_GET["admin"] : "connection";
 
 route([
     "connection",

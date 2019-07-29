@@ -153,7 +153,7 @@ if(!empty($_FILES) AND isset($req)){require "photos.php";}
                             <option value="accessoires">Accessoires</option>
                         </select>
                     </p>
-                    <span>Choisissez des photos (de 1 à 4)</span>
+                    <span>Choisissez des photos (1 au minimum)</span>
                     <p>
                         <input type="file" name="photo1" id="photo1" multiple>
                         <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
@@ -175,6 +175,11 @@ if(!empty($_FILES) AND isset($req)){require "photos.php";}
                         <button type="submit">Envoyer</button>
                     </p>
                 </form>
+                <span>Dans description</span><br>
+                <?= htmlentities('<strong>notre texte</strong>')." : <span style='color: green'>Mettre en gras</span><br>"; ?>
+                <?= htmlentities("<i>notre texte</i>")." : <span style='color: green'>Mettre en italic</span><br>"; ?>
+                <?= htmlentities("<mark>notre texte</mark>")." : <span style='color: green'>Mettre en surbrillance</span>"; ?>
+                
                 
             </div>
         </div>

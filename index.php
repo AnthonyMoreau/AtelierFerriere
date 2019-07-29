@@ -1,29 +1,23 @@
 <?php
 
-    session_start();
-    $_SESSION["auth"] = false;
-    $_SESSION["errors"] = "";
+session_start();
 
-    require "app/functions/functions.php";
-    require 'vendor/autoload.php';
+$_SESSION["auth"] = false;
+$_SESSION["errors"] = "";
 
-    if(isset($_GET["page"])){
+require "app/functions/functions.php";
+require 'vendor/autoload.php';
 
-        $page = $_GET["page"];
+$page = (isset($_GET["page"])) ? $_GET["page"] : "home";
 
-    } else {
-
-        $page = "home";
-    }
-
-    route([
-        "home",
-        "professionnels",
-        "particuliers",
-        "mobiliers",
-        "accessoires",
-        "atelier",
-        "contact"
-    ],$page, "pages", "home");
+route([
+    "home",
+    "professionnels",
+    "particuliers",
+    "mobiliers",
+    "accessoires",
+    "atelier",
+    "contact"
+],$page, "pages", "home");
 
 

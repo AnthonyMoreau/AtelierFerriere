@@ -4,8 +4,8 @@ $db_charset = "UTF8";
 
 $db_name = "atelier";
 $db_host = "127.0.0.1";
-$db_user = "admin";
-$db_pass = "plop";
+$db_user = "root";
+$db_pass = "root";
 
 if(!isset($pdo)){
 
