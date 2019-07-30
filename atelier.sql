@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Lun 29 Juillet 2019 à 16:12
+-- Généré le :  Mar 30 Juillet 2019 à 09:13
 -- Version du serveur :  5.7.27-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.19-0ubuntu0.18.04.1
 
@@ -36,15 +36,6 @@ CREATE TABLE `posts` (
   `type` varchar(20) NOT NULL,
   `categories` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `posts`
---
-
-INSERT INTO `posts` (`id`, `date`, `title`, `description`, `link_title`, `link`, `type`, `categories`) VALUES
-(63, 'mai 2012', 'Mon titre', 'Ma description', '', '', 'type-1', 'actualites'),
-(64, 'Aujourd\'hui', 'Titre 2', 'Titre 2', '', '', 'type-2', 'professionnels'),
-(65, 'Aujourd\'hui le 22 mai', 'Mon nouvel article', 'Ma super description !!.\r\n<strong>un mot en gras</strong>\r\n<i>un mot en italic</i>\r\n<mark>un mot coloré</mark>\r\n', 'Notre page Facebook', 'http://google.com', 'type-2', 'professionnels');
 
 -- --------------------------------------------------------
 
