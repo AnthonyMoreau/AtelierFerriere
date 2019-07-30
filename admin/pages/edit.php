@@ -353,7 +353,7 @@
                                 <form name="<?= $post->categories ?>" action="" method="post">
                                     <label class="id" name="<?= $post->id ?>" for="title-edit" value="<?= $post->id ?>"><?= $post->id ?> : </label>
                                     <label name="<?= $post->title ?>" for="title-edit" value="<?= $post->title ?>"><?= $post->title ?> : </label>
-                                    <label name="<?= $post->description ?>" for="title-edit" value="<?= $post->description ?>"><?= substr($post->description , 0 , 30) ?>... : </label>
+                                    <label name="<?= htmlentities($post->description) ?>" for="title-edit" value="<?= htmlentities($post->description) ?>"><?= htmlentities(substr($post->description , 0 , 30)) ?>... : </label>
                                     <label style="display: none" name="<?= $post->categories ?>" for="title-edit" value="<?= $post->categories ?>"><?= $post->categories ?> : </label>
                     
                                     <input name="<?= $post->id ?>" type="submit" value="modifier">

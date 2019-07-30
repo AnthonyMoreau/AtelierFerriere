@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function(){
     let p = setInterval(() => {
         let o = document.querySelector(".choice select");
         let op;
         if(o !== null){
-            op = o.value
+            op = o.value;
         }
         let options;
         if(op !== null){
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let form = document.querySelectorAll('form');
             for (let i = 0; i < form.length; i++) {
                 if(form[i].name === 'actualites'){
-                    form[i].style.display = 'block'
+                    form[i].style.display = 'block';
                 } else {
                     form[i].style.display = 'none';
                 }
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let form = document.querySelectorAll('form');
             for (let i = 0; i < form.length; i++) {
                 if(form[i].name === 'accessoires'){
-                    form[i].style.display = 'block'
+                    form[i].style.display = 'block';
                 } else {
                     form[i].style.display = 'none';
                 }
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let form = document.querySelectorAll('form');
             for (let i = 0; i < form.length; i++) {
                 if(form[i].name === 'professionnels'){
-                    form[i].style.display = 'block'
+                    form[i].style.display = 'block';
                 } else {
                     form[i].style.display = 'none';
                 }
@@ -46,14 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if(options === "tous"){
             let form = document.querySelectorAll('form');
             for (let i = 0; i < form.length; i++) {
-                form[i].style.display = 'block'
+                form[i].style.display = 'block';
             }
         }
         if(options === "particuliers"){
             let form = document.querySelectorAll('form');
             for (let i = 0; i < form.length; i++) {
                 if(form[i].name === 'particuliers'){
-                    form[i].style.display = 'block'
+                    form[i].style.display = 'block';
                 } else {
                     form[i].style.display = 'none';
                 }
@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
             let form = document.querySelectorAll('form');
             for (let i = 0; i < form.length; i++) {
                 if(form[i].name === 'mobiliers'){
-                    form[i].style.display = 'block'
+                    form[i].style.display = 'block';
                 } else {
                     form[i].style.display = 'none';
                 }
                 
             }
         }
-    }, 1000)
-})
+    }, 1000);
+});

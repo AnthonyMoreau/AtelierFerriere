@@ -17,12 +17,12 @@
                 <a href="<?= get_link("page")?>professionnels" class="<?= active($page, "professionnels") ?>">Professionnels</a>
                 <a href="<?= get_link("page")?>particuliers" class="<?= active($page, "particuliers") ?>">Particuliers</a>
                 <a href="<?= get_link("page")?>mobiliers" class="<?= active($page, "mobiliers") ?>">Mobiliers</a>
-                <a href="<?= get_link("page")?>accessoires" class="<?= active($page, "accessoires") ?>">Accéssoires</a>
+                <a href="<?= get_link("page")?>accessoires" class="<?= active($page, "accessoires") ?>">Accessoires</a>
                 <a href="<?= get_link("page")?>atelier" class="<?= active($page, "atelier") ?>">L'Atelier</a>
                 <a href="<?= get_link("page")?>contact" class="<?= active($page, "contact") ?>">Contact</a>
                 <div class="network">
-                    <a href="#"><i class="fab fa-facebook-square"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://fr-fr.facebook.com/AtelierFerriere/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/atelier_fd/" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="modal">
@@ -35,12 +35,12 @@
                                 <a href="<?= get_link("page")?>professionnels" class="<?= active($page, "professionnels") ?>">Professionnels</a>
                                 <a href="<?= get_link("page")?>particuliers" class="<?= active($page, "particuliers") ?>">Particuliers</a>
                                 <a href="<?= get_link("page")?>mobiliers" class="<?= active($page, "mobiliers") ?>">Mobiliers</a>
-                                <a href="<?= get_link("page")?>accessoires" class="<?= active($page, "accessoires") ?>">Accéssoires</a>
+                                <a href="<?= get_link("page")?>accessoires" class="<?= active($page, "accessoires") ?>">Accessoires</a>
                                 <a href="<?= get_link("page")?>atelier" class="<?= active($page, "atelier") ?>">L'Atelier</a>
                                 <a href="<?= get_link("page")?>contact" class="<?= active($page, "contact") ?>">Contact</a>
                                 <div class="network-small-screen">
-                                    <a href="#"><i class="fab fa-facebook-square"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://fr-fr.facebook.com/AtelierFerriere/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                                    <a href="https://www.instagram.com/atelier_fd/" target="_blank"><i class="fab fa-instagram"></i></a>
                                 </div>
                         </div>
                     </div>
@@ -51,12 +51,8 @@
         <script type="text/javascript">
 
             let size = window.innerWidth;
-            let height = window.innerHeight;
-            console.log(height)
-            if(size < 768) {
 
-                console.log(size);
-                
+            if(size < 768) {
                 document.addEventListener("DOMContentLoaded", function(){ 
                     
                     
