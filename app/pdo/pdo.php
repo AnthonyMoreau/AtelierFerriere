@@ -2,10 +2,10 @@
 
 $db_charset = "UTF8";
 
-$db_name = "epiz_24255669_atelier";
-$db_host = "sql312.epizy.com";
-$db_user = "epiz_24255669";
-$db_pass = "mZ4snWc14YfWkn";
+$db_name = "atelier";
+$db_host = "127.0.0.1";
+$db_user = "root";
+$db_pass = "root";
 
 if(!isset($pdo)){
 

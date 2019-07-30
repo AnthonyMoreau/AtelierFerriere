@@ -66,3 +66,18 @@
 
     }
 }
+@media only screen and (max-width: 920px) {
+    .container-admin-create {
+        align-items: start; 
+    }
+    .container-admin-create .admin-content-create .create .create-left {
+        float: none;
+    } 
+    .container-admin-create .admin-content-create .create #type {
+        float: none;
+
+    } .container-admin-create .admin-content-create form {
+        display: block;
+    } 
+    
+}
